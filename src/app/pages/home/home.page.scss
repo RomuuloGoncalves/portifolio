@@ -1,0 +1,70 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+ion-header {
+  background-color: #311e25;
+  color: #db9a64;
+  .menu {
+    &__title {
+      font-size: 2.5rem;
+    }
+
+    &__nav {
+      gap: 10%;
+      ion-label {
+        font-size: 1.5rem;
+        border-bottom: 2px solid transparent;
+
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.sessao {
+  min-height: 90vh;
+  &__1 {
+    background: url("../../../assets/img/banner.png");
+    background-size: cover;
+    .apresentacao {
+      font-size: 4.5rem;
+    }
+
+    img {
+      border-radius: 10%;
+    }
+  }
+
+  &__2 {
+    background-color: #311e25;
+    color: #fff;
+    font-size: 1.3rem;
+    text-align: justify;
+    letter-spacing: 3px;
+
+    ion-icon {
+      width: 100%;
+      font-size: 20rem;
+    }
+  }
+
+  &__3{
+    background: url("../../../assets/img/banner.png");
+    background-size: cover;
+    .title{
+      font-size: 5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
+
+  &__4{
+    background-color: #311e25;
+    .title{
+      font-size: 5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
+}

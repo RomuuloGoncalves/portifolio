@@ -1,0 +1,129 @@
+<ion-content [fullscreen]="true">
+  <ion-header [translucent]="true">
+    <ion-row class="ion-align-items-center ion-justify-content-center ion-padding">
+      <ion-col size="3">
+        <ion-row class="ion-align-items-center ion-justify-content-center menu__title">
+          <ion-label>Rômulo</ion-label>
+        </ion-row>
+      </ion-col>
+
+      <ion-col size="3">
+        <ion-row class="ion-align-items-center ion-justify-content-center menu__nav">
+          <ion-label>Sobre</ion-label>
+          <ion-label> Projetos</ion-label>
+          <ion-label>Habilidades</ion-label>
+        </ion-row>
+      </ion-col>
+
+      <ion-col size="3">
+        <ion-row class="ion-align-items-center ion-justify-content-center">
+
+          <ion-button fill="outline" size="large">
+            contato
+          </ion-button>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-header>
+
+
+  <ion-row class="sessao__1 ion-align-items-center ion-justify-content-around">
+    <ion-col size="7">
+      <ion-row class="ion-align-items-center ion-justify-content-center">
+        <ion-col size="8">
+          <ion-row class="">
+            <ion-label class="apresentacao" color="light">
+              Olá, Eu sou Rômulo
+            </ion-label>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-align-items-center ion-justify-content-center">
+        <ion-col size="8">
+          <ion-row class="">
+            <ion-label class="apresentacao" color="primary">
+              Desenvolvedor e Programador
+            </ion-label>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-align-items-center ion-justify-content-center">
+        <ion-col size="8">
+          <ion-row class="">
+            <ion-button fill="outline" size="large">
+              Ver projetos
+            </ion-button>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+
+    </ion-col>
+
+    <ion-col size="5">
+      <ion-row class="ion-justify-content-around">
+        <ion-col size="9" class="rounded">
+          <img src="../../../assets/img/foto1.jpeg" alt="">
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="sessao__2 ion-align-items-center ion-justify-content-center">
+    <ion-col size="4">
+      <ion-icon name="person-outline"></ion-icon>
+    </ion-col>
+    <ion-col size="5">
+      <ion-row>
+        <ion-text>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum praesentium rem id temporibus assumenda
+            laboriosam. Illo excepturi modi, beatae iure voluptatum sed atque nulla fuga quo, id eligendi sequi
+            blanditiis.
+          </p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet rerum doloremque odio accusantium porro
+            maxime tenetur? Ad libero vel, asperiores repellendus cumque beatae similique laborum ipsum facere
+            architecto, fugit quibusdam!
+          </p>
+
+        </ion-text>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="sessao__3 ion-align-items-center ion-justify-content-center">
+    <ion-col size="12">
+      <ion-row class="ion-align-items-center ion-justify-content-center">
+        <ion-label class="title" color="primary">Projetos</ion-label>
+      </ion-row>
+    </ion-col>
+    <ion-col size="11">
+      <ion-row class="ion-align-items-center ion-justify-content-center">
+        <ion-col size="3">
+          <app-projetos [nome]="'TO DO'" [sobre]="'App para criar e planejar tarefas.'"
+            [img]="'../../../assets/img/desktop-design-dark.jpg'"></app-projetos>
+        </ion-col>
+        <ion-col size="3">
+          <app-projetos [nome]="'Clone do site do Discord'" [sobre]="'App para criar e planejar tarefas.'"
+            [img]="'../../../assets/img/desktop-design-dark.jpg'"></app-projetos>
+        </ion-col>
+        <ion-col size="3">
+          <app-projetos [nome]="'Calculadora'" [sobre]="''"
+            [img]="'../../../assets/img/desktop-design-dark.jpg'"></app-projetos>
+        </ion-col>
+      </ion-row>
+
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="sessao__4 ion-align-items-center ion-justify-content-center">
+    <ion-col size="12">
+      <ion-row class="ion-align-items-center ion-justify-content-center">
+        <ion-label class="title" color="primary">Habilidades</ion-label>
+      </ion-row>
+    </ion-col>
+
+  </ion-row>
+</ion-content>
