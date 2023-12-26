@@ -13,4 +13,5 @@ export class ProjetosComponent  implements OnInit {
   @Input() nome!:string
   @Input() img!:string
   @Input() sobre!:string
+  @Input() link!:string
 }

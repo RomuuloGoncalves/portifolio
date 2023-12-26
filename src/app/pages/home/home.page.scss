@@ -2,33 +2,13 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-ion-header {
-  background-color: #311e25;
-  color: #db9a64;
-  .menu {
-    &__title {
-      font-size: 2.5rem;
-    }
-
-    &__nav {
-      gap: 10%;
-      ion-label {
-        font-size: 1.5rem;
-        border-bottom: 2px solid transparent;
-
-        cursor: pointer;
-      }
-    }
-  }
-}
-
 .sessao {
   min-height: 90vh;
   &__1 {
     background: url("../../../assets/img/banner.png");
     background-size: cover;
     .apresentacao {
-      font-size: 4.5rem;
+      font-size: 4rem;
     }
 
     img {
@@ -49,22 +29,47 @@ ion-header {
     }
   }
 
-  &__3{
+  &__3 {
     background: url("../../../assets/img/banner.png");
     background-size: cover;
-    .title{
+    .title {
       font-size: 5rem;
       font-weight: 700;
       text-transform: uppercase;
     }
   }
 
-  &__4{
+  &__4 {
     background-color: #311e25;
-    .title{
+    .title {
       font-size: 5rem;
       font-weight: 700;
       text-transform: uppercase;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .sessao {
+    &__1 {
+      .apresentacao {
+        font-size: 2rem;
+      }
+    }
+
+    &__2 {
+    }
+
+    &__3 {
+      .title {
+        font-size: 2rem;
+      }
+    }
+
+    &__4 {
+      .title {
+        font-size: 2rem;
+      }
     }
   }
 }

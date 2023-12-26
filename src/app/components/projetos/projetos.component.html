@@ -1,10 +1,12 @@
 <ion-card>
-  <img alt="{{this.nome}}" src="{{this.img}}" />
-  <ion-card-header>
-    <ion-card-title>{{this.nome}}</ion-card-title>
-  </ion-card-header>
-
-  <ion-card-content>
-    {{this.sobre}}
-  </ion-card-content>
+  <a href="{{this.link}}" target="_blank">
+    <img alt="{{this.nome}}" src="{{this.img}}" />
+    <ion-card-header>
+      <ion-card-title>{{this.nome}}</ion-card-title>
+    </ion-card-header>
+    
+    <ion-card-content>
+      {{this.sobre}}
+    </ion-card-content>
+  </a>
 </ion-card>
