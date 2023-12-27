@@ -2,6 +2,10 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+ion-footer{
+  background-color: #291b20;
+}
+
 .sessao {
   min-height: 90vh;
   &__1 {
@@ -21,7 +25,7 @@
     color: #fff;
     font-size: 1.3rem;
     text-align: justify;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 
     ion-icon {
       width: 100%;
@@ -46,6 +50,11 @@
       font-weight: 700;
       text-transform: uppercase;
     }
+
+    .skill{
+      text-transform: uppercase;
+      font-size: 3rem;
+    }
   }
 }
 
@@ -69,6 +78,10 @@
     &__4 {
       .title {
         font-size: 2rem;
+      }
+
+      .skill{
+        font-size: 1.2rem;
       }
     }
   }

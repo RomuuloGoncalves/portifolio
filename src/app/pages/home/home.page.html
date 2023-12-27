@@ -53,17 +53,32 @@
     <ion-col size="11" sizeMd="5">
       <ion-row>
         <ion-text>
+          <h1>
+            Sobre Mim
+          </h1>
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum praesentium rem id temporibus assumenda
-            laboriosam. Illo excepturi modi, beatae iure voluptatum sed atque nulla fuga quo, id eligendi sequi
-            blanditiis.
-          </p>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet rerum doloremque odio accusantium porro
-            maxime tenetur? Ad libero vel, asperiores repellendus cumque beatae similique laborum ipsum facere
-            architecto, fugit quibusdam!
+            Olá! Sou Rômulo, um entusiasta da programação com formação em Técnico em Desenvolvimento de Sistemas. Minha
+            jornada na área de tecnologia começou com a busca pelo entendimento profundo das linguagens de programação e
+            arquiteturas de sistemas.
           </p>
 
+          <h1>
+            Educação:
+          </h1>
+          <p>
+            Me formei no curso de Técnico em Desenvolvimento de Sistemas, onde adquiri conhecimentos sólidos em
+            programação, estruturação de dados e resolução de problemas complexos. Essa formação me proporcionou uma
+            base sólida para construir soluções inovadoras e eficientes.
+          </p>
+
+          <h1>
+            Habilidades Técnicas:
+          </h1>
+          <p>
+            Possuo expertise em diversas técnologias como Javascript, PHP, Angular, MySql, entre outras áreas, e estou sempre buscando
+            aprender e me adaptar a novas tecnologias. Além disso, tenho familiaridade com metodologias ágeis, o que me
+            permite colaborar de forma eficaz em equipes multidisciplinares.
+          </p>
         </ion-text>
       </ion-row>
     </ion-col>
@@ -111,12 +126,13 @@
 
       <ion-row class="ion-align-items-center ion-justify-content-center">
         <ion-col size="11" sizeMd="6" sizeLg="4">
-          <app-projetos [nome]="'Jogo da velha'" [sobre]="'Jogo da velha'"  [img]="'../../../assets/img/velha.png'"
-          [link]="'https://romuulogoncalves.github.io/tic-tac-toe/'"></app-projetos>
+          <app-projetos [nome]="'Jogo da velha'" [sobre]="'Jogo da velha'" [img]="'../../../assets/img/velha.png'"
+            [link]="'https://romuulogoncalves.github.io/tic-tac-toe/'"></app-projetos>
         </ion-col>
         <ion-col size="11" sizeMd="6" sizeLg="4">
-          <app-projetos [nome]="'Pedra, papel ou tesoura'" [sobre]="'Jogo: Pedra, papel ou tesoura'" [img]="'../../../assets/img/pedra-papel-tesoura.png'"
-          [link]="'https://romuulogoncalves.github.io/rock-paper-scissors/'"></app-projetos>
+          <app-projetos [nome]="'Pedra, papel ou tesoura'" [sobre]="'Jogo: Pedra, papel ou tesoura'"
+            [img]="'../../../assets/img/pedra-papel-tesoura.png'"
+            [link]="'https://romuulogoncalves.github.io/rock-paper-scissors/'"></app-projetos>
         </ion-col>
       </ion-row>
 
@@ -130,5 +146,37 @@
       </ion-row>
     </ion-col>
 
+    <ion-col size="11">
+      <ion-row class="ion-align-items-center">
+        <ion-label class="skill" color="light">Tecnologias</ion-label>
+      </ion-row>
+    </ion-col>
+
+    <ion-col size="11">
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="6" sizeSm="4" sizeMd="2" sizeLg="1.5" *ngFor="let skill of tecnologias">
+          <app-skills [nome]="this.skill[0]" [img]="this.skill[1]"></app-skills>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+
+    <ion-col size="11">
+      <ion-row class="ion-align-items-center">
+        <ion-label class="skill" color="light">Ferramentas</ion-label>
+      </ion-row>
+    </ion-col>
+    <ion-col size="11">
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="6" sizeSm="4" sizeMd="2" sizeLg="1.5" *ngFor="let skill of ferramentas">
+          <app-skills [nome]="this.skill[0]" [img]="this.skill[1]"></app-skills>
+        </ion-col>
+      </ion-row>
+    </ion-col>
   </ion-row>
+
+  <ion-footer class="ion-no-border">
+    <ion-row class="ion-padding ion-justify-content-center">
+      <ion-label color="light">Desenvolvido por: Rômulo da Silva Gonçalves</ion-label>
+    </ion-row>
+  </ion-footer>
 </ion-content>
