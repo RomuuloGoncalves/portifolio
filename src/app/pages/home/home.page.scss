@@ -2,7 +2,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-ion-footer{
+ion-footer {
   background-color: #291b20;
 }
 
@@ -51,9 +51,27 @@ ion-footer{
       text-transform: uppercase;
     }
 
-    .skill{
+    .skill {
       text-transform: uppercase;
       font-size: 3rem;
+    }
+  }
+
+  &__5 {
+    .title {
+      font-size: 5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    ion-textarea {
+      height: 200px;
+    }
+
+    .campos__contato {
+      display: flex;
+      gap: 5px;
+      flex-direction: column;
     }
   }
 }
@@ -80,8 +98,14 @@ ion-footer{
         font-size: 2rem;
       }
 
-      .skill{
+      .skill {
         font-size: 1.2rem;
+      }
+    }
+    
+    &__5 {
+      .title {
+        font-size: 2rem;
       }
     }
   }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent  implements OnInit {
+  constructor( private el: ElementRef) { }
 
-  constructor() { }
 
   ngOnInit() {}
+  @Output() linkClicked: EventEmitter<string> = new EventEmitter<string>();
+
+  direcionar(rota: string) {
+    this.linkClicked.emit(rota);
+  }
+
+  // public direcionar (rota: string) {
+  //   const fragment = this.el.nativeElement.querySelector(rota);
+  //   if (fragment) fragment.scrollIntoView({ behavior: 'smooth' });
+  // }
+
 
 }
