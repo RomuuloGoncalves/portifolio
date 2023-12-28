@@ -1,8 +1,9 @@
 <ion-content [fullscreen]="true">
   <app-header (linkClicked)="scrollToSection($event)"></app-header>
-  <ion-row class="sessao__1 ion-align-items-center ion-justify-content-around ion-padding-top ion-padding-bottom">
-    <ion-col size="11" sizeMd="7">
-      <ion-row class="ion-align-items-center ion-justify-content-center">
+
+  <ion-row class="sessao sessao__1 ion-align-items-center ion-justify-content-around ion-padding-vertical">
+    <ion-col size="11" sizeMd="7" class="container__apresentacao">
+      <ion-row class="ion-align-items-center ion-justify-content-center " >
         <ion-col size="11" sizeMd="8">
           <ion-row>
             <ion-label class="apresentacao" color="light">
@@ -31,19 +32,18 @@
           </ion-row>
         </ion-col>
       </ion-row>
-
     </ion-col>
 
-    <ion-col size="12" sizeMd="5">
+    <ion-col size="12" sizeMd="5" >
       <ion-row class="ion-justify-content-around">
-        <ion-col size="9" class="rounded">
+        <ion-col size="9" class="rounded ">
           <img src="{{'./assets/img/foto.jpeg'||'./assets/img/foto.jpeg'}}" alt="">
         </ion-col>
       </ion-row>
     </ion-col>
   </ion-row>
 
-  <ion-row id="sobre" class="sessao__2 ion-align-items-center ion-justify-content-center" >
+  <ion-row id="sobre" class="sessao sessao__2 ion-align-items-center ion-justify-content-center">
     <ion-col size="11" sizeMd="4">
       <ion-icon name="person-outline"></ion-icon>
     </ion-col>
@@ -55,7 +55,7 @@
           </h1>
           <p>
             Olá! Sou Rômulo, um entusiasta da programação com formação em Técnico em Desenvolvimento de Sistemas. Minha
-            jornada na área de tecnologia começou com a busca pelo entendimento profundo das linguagens de programação e
+            jornada na área de tecnologia começou com a busca pelo entendimento das linguagens de programação e
             arquiteturas de sistemas.
           </p>
 
@@ -72,7 +72,8 @@
             Habilidades Técnicas:
           </h1>
           <p>
-            Possuo expertise em diversas técnologias como Javascript, PHP, Angular, MySql, entre outras áreas, e estou sempre buscando
+            Possuo expertise em diversas técnologias como Javascript, PHP, Angular, MySql, entre outras áreas, e estou
+            sempre buscando
             aprender e me adaptar a novas tecnologias. Além disso, tenho familiaridade com metodologias ágeis, o que me
             permite colaborar de forma eficaz em equipes multidisciplinares.
           </p>
@@ -81,7 +82,7 @@
     </ion-col>
   </ion-row>
 
-  <ion-row id="projetos" class="sessao__3 ion-align-items-center ion-justify-content-center">
+  <ion-row id="projetos" class="sessao sessao__3 ion-align-items-center ion-justify-content-center">
     <ion-col size="11">
       <ion-row class="ion-align-items-center ion-justify-content-center">
         <ion-label class="title" color="primary">Projetos</ion-label>
@@ -100,7 +101,8 @@
         </ion-col>
         <ion-col size="11" sizeMd="6" sizeLg="4">
 
-          <app-projetos [nome]="'Calculadora'" [sobre]="'Calculadora.'" [img]="'./assets/img/calculadora.png' || './assets/img/calculadora.png'"
+          <app-projetos [nome]="'Calculadora'" [sobre]="'Calculadora.'"
+            [img]="'./assets/img/calculadora.png' || './assets/img/calculadora.png'"
             [link]="'https://romuulogoncalves.github.io/calculator/'"></app-projetos>
         </ion-col>
 
@@ -123,7 +125,8 @@
 
       <ion-row class="ion-align-items-center ion-justify-content-center">
         <ion-col size="11" sizeMd="6" sizeLg="4">
-          <app-projetos [nome]="'Jogo da velha'" [sobre]="'Jogo da velha'" [img]="'./assets/img/velha.png' || './assets/img/velha.png'"
+          <app-projetos [nome]="'Jogo da velha'" [sobre]="'Jogo da velha'"
+            [img]="'./assets/img/velha.png' || './assets/img/velha.png'"
             [link]="'https://romuulogoncalves.github.io/tic-tac-toe/'"></app-projetos>
         </ion-col>
         <ion-col size="11" sizeMd="6" sizeLg="4">
@@ -132,75 +135,91 @@
             [link]="'https://romuulogoncalves.github.io/rock-paper-scissors/'"></app-projetos>
         </ion-col>
       </ion-row>
-
     </ion-col>
   </ion-row>
 
-  <ion-row id="habilidades" class="sessao__4 ion-align-items-center ion-justify-content-center">
+  <ion-row id="habilidades" class="sessao sessao__4 ion-align-items-center ion-justify-content-center">
     <ion-col size="11">
       <ion-row class="ion-align-items-center ion-justify-content-center">
-        <ion-label class="title" color="primary">Habilidades</ion-label>
-      </ion-row>
-    </ion-col>
-
-    <ion-col size="11">
-      <ion-row class="ion-align-items-center">
-        <ion-label class="skill" color="light">Tecnologias</ion-label>
+        <ion-label class="title" color="secondary">Habilidades</ion-label>
       </ion-row>
     </ion-col>
 
     <ion-col size="11">
       <ion-row class="ion-justify-content-center">
-        <ion-col size="6" sizeSm="4" sizeMd="2" sizeLg="1.5" *ngFor="let skill of tecnologias">
+        <ion-col size="5" sizeSm="6" sizeMd="4" sizeLg="3" sizeMd="2" sizeLg="1.2" *ngFor="let skill of skills">
           <app-skills [nome]="this.skill[0]" [img]="this.skill[1]"></app-skills>
         </ion-col>
       </ion-row>
     </ion-col>
 
-    <ion-col size="11">
+    <!-- <ion-col size="11">
       <ion-row class="ion-align-items-center">
-        <ion-label class="skill" color="light">Ferramentas</ion-label>
+        <ion-label class="skill" color="secondary">Tecnologias</ion-label>
+      </ion-row>
+    </ion-col> -->
+
+    <!-- <ion-col size="11">
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="5" sizeSm="6" sizeMd="4" sizeLg="3" sizeMd="2" sizeLg="1.2" *ngFor="let skill of tecnologias">
+          <app-skills [nome]="this.skill[0]" [img]="this.skill[1]"></app-skills>
+        </ion-col>
+      </ion-row>
+    </ion-col> -->
+
+    <!-- <ion-col size="11">
+      <ion-row class="ion-align-items-center">
+        <ion-label class="skill" color="secondary">Ferramentas</ion-label>
+      </ion-row>
+    </ion-col> -->
+    <!-- <ion-col size="11">
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="5" sizeSm="6" sizeMd="4" sizeLg="3" sizeMd="2" sizeLg="1.2" *ngFor="let skill of ferramentas">
+          <app-skills [nome]="this.skill[0]" [img]="this.skill[1]"></app-skills>
+        </ion-col>
+      </ion-row>
+    </ion-col> -->
+  </ion-row>
+  <ion-row id="contato" class="sessao sessao__5 ion-align-items-center ion-justify-content-around ion-padding-top ion-padding-bottom">
+    <ion-col size="11">
+      <ion-row class="ion-align-items-center ion-justify-content-center">
+        <ion-label class="title" >Contato</ion-label>
       </ion-row>
     </ion-col>
     <ion-col size="11">
       <ion-row class="ion-justify-content-center">
-        <ion-col size="6" sizeSm="4" sizeMd="2" sizeLg="1.5" *ngFor="let skill of ferramentas">
-          <app-skills [nome]="this.skill[0]" [img]="this.skill[1]"></app-skills>
+        <ion-col size="11" sizeSm="6" sizeMd="4" sizeLg="3">
+          <app-contato [nome]="'LinkedIn'" [link]="'https://www.linkedin.com/in/romuulogoncalves/'"
+            [img]="'logo-linkedin'"></app-contato>
+        </ion-col>
+        <ion-col size="11" sizeSm="6" sizeMd="4" sizeLg="3">
+          <app-contato [nome]="'WhatsApp'" [link]="'https://wa.me/15981045269'" [img]="'logo-whatsapp'"></app-contato>
+        </ion-col>
+        <ion-col size="11" sizeSm="6" sizeMd="4" sizeLg="3">
+          <app-contato [nome]="'E-mail'" [link]="'mailto:romulogoncalves13@gmail.com'"
+            [img]="'mail-outline'"></app-contato>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="11" sizeSm="6" sizeMd="4" sizeLg="3">
+          <app-contato [nome]="'GitHub'" [link]="'https://github.com/RomuuloGoncalves'"
+            [img]="'logo-octocat'"></app-contato>
+        </ion-col>
+        <ion-col size="11" sizeSm="6" sizeMd="4" sizeLg="3">
+          <app-contato [nome]="'Stack Overflow'" [link]="'https://stackoverflow.com/users/22359187/romulo-gon%c3%a7alves'" [img]="'logo-stackoverflow'"></app-contato>
+        </ion-col>
+        <ion-col size="11" sizeSm="6" sizeMd="4" sizeLg="3">
+          <app-contato [nome]="'Instagram'" [link]="'https://www.instagram.com/romuulogoncalves/'"
+            [img]="'logo-instagram'"></app-contato>
         </ion-col>
       </ion-row>
     </ion-col>
   </ion-row>
 
-  <ion-row id="contato" class="sessao__5 ion-align-items-center ion-justify-content-around ion-padding-top ion-padding-bottom">
-    <ion-col size="11">
-      <ion-row class="ion-align-items-center ion-justify-content-center">
-        <ion-label class="title" color="primary">Contato</ion-label>
-      </ion-row>
-    </ion-col>
-    <ion-col size="11" sizeMd="6">
-
-      <form #cadastroForm="ngForm">
-        <ion-row class="ion-justify-content-center">
-          <ion-col size="12" class="campos__contato">
-            
-            <ion-input ngModel name="nome" label="Nome" type="text"
-            required label="Nome" label-placement="floating" fill="outline" placeholder="Digite seu nome"></ion-input>
-            
-            <ion-input ngModel name="emamil" label="E-mail" type="text"
-            required label="E-mail" label-placement="floating" fill="outline" placeholder="Digite seu e-mail"></ion-input>
- 
-            <ion-textarea ngModel required  name="mensagem" label="Mensagem" label-placement="floating"
-            fill="outline" placeholder="Digite sua mensagem"></ion-textarea>
-            <ion-button fill="outline" size="large">Enviar</ion-button>
-          </ion-col>
-          
-        </ion-row>
-      </form>
-    </ion-col>
-  </ion-row>
   <ion-footer class="ion-no-border">
     <ion-row class="ion-padding ion-justify-content-center">
-      <ion-label color="light">Desenvolvido por: Rômulo da Silva Gonçalves</ion-label>
+      <ion-label color="secondary">Desenvolvido por: Rômulo da Silva Gonçalves</ion-label>
     </ion-row>
   </ion-footer>
 </ion-content>

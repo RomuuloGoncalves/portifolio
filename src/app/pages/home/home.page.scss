@@ -3,14 +3,20 @@
 }
 
 ion-footer {
-  background-color: #291b20;
+  background-color: var(--ion-color-tertiary);
+  color: var(--ion-color-secondary);
 }
 
 .sessao {
-  min-height: 90vh;
   &__1 {
-    background: url("../../../assets/img/banner.png");
+    background: url("../../../assets/img/1014.jpg");
     background-size: cover;
+    min-height: 85vh;
+    .container__apresentacao {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
     .apresentacao {
       font-size: 4rem;
     }
@@ -21,11 +27,11 @@ ion-footer {
   }
 
   &__2 {
-    background-color: #311e25;
-    color: #fff;
-    font-size: 1.3rem;
-    text-align: justify;
+    background-color: var(--ion-color-tertiary);
+    color: var(--ion-color-secondary);
+    font-size: 1.1rem;
     letter-spacing: 2px;
+    min-height: 80vh;
 
     ion-icon {
       width: 100%;
@@ -34,7 +40,7 @@ ion-footer {
   }
 
   &__3 {
-    background: url("../../../assets/img/banner.png");
+    background: url("../../../assets/img/1014.jpg");
     background-size: cover;
     .title {
       font-size: 5rem;
@@ -44,7 +50,8 @@ ion-footer {
   }
 
   &__4 {
-    background-color: #311e25;
+    background-color: var(--ion-color-tertiary);
+    color: var(--ion-color-secondary);
     .title {
       font-size: 5rem;
       font-weight: 700;
@@ -58,6 +65,11 @@ ion-footer {
   }
 
   &__5 {
+    min-height: 50vh;
+    background-color: var(--ion-color-tertiary);
+    color: var(--ion-color-primary);
+    background: url("../../../assets/img/1014.jpg");
+
     .title {
       font-size: 5rem;
       font-weight: 700;
@@ -102,7 +114,7 @@ ion-footer {
         font-size: 1.2rem;
       }
     }
-    
+
     &__5 {
       .title {
         font-size: 2rem;

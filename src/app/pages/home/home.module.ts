@@ -10,6 +10,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { ProjetosComponent } from 'src/app/components/projetos/projetos.component';
 import { HeaderComponent } from 'src/app/components/common/header/header.component';
 import { SkillsComponent } from 'src/app/components/skills/skills.component';
+import { ContatoComponent } from 'src/app/components/contato/contato.component';
 
 
 @NgModule({
@@ -19,6 +20,6 @@ import { SkillsComponent } from 'src/app/components/skills/skills.component';
     IonicModule,
     HomePageRoutingModule,
   ],
-  declarations: [HomePage, ProjetosComponent, HeaderComponent, SkillsComponent]
+  declarations: [HomePage, ProjetosComponent, HeaderComponent, SkillsComponent, ContatoComponent]
 })
 export class HomePageModule {}
