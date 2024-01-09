@@ -4,6 +4,7 @@ ion-header {
   .menu {
     &__title {
       font-size: 2.5rem;
+      justify-content: center;
     }
 
     &__nav {
@@ -52,6 +53,9 @@ ion-menu {
 @media (max-width: 800px) {
   .menu {
     display: block;
+    &__title{
+      justify-content: flex-start !important;
+    }
   }
 
   .opcoes__menu {

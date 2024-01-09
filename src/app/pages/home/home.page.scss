@@ -22,7 +22,7 @@ ion-footer {
     }
 
     img {
-      border-radius: 10%;
+      border-radius: 50%;
     }
   }
 
@@ -97,6 +97,9 @@ ion-footer {
     }
 
     &__2 {
+      ion-icon {
+        display: none;
+      }
     }
 
     &__3 {
