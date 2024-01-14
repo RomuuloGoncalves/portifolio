@@ -3,7 +3,7 @@
 
   <ion-row class="sessao sessao__1 ion-align-items-center ion-justify-content-around ion-padding-vertical">
     <ion-col size="11" sizeMd="7" class="container__apresentacao">
-      <ion-row class="ion-align-items-center ion-justify-content-center " >
+      <ion-row class="ion-align-items-center ion-justify-content-center ">
         <ion-col size="11" sizeMd="8">
           <ion-row>
             <ion-label class="apresentacao" color="light">
@@ -29,12 +29,21 @@
             <ion-button fill="outline" size="large" (click)="scrollToSection('#projetos')">
               Ver projetos
             </ion-button>
+            <ion-button fill="clear" size="large">
+              <a href="./assets/docs/currículo.pdf" download="curriculo">
+
+                <ion-row class="ion-align-items-center" style="gap: 10px;">
+                  <ion-label>Currículo</ion-label>
+                  <ion-icon name="cloud-download-outline"></ion-icon>
+                </ion-row>
+              </a>
+            </ion-button>
           </ion-row>
         </ion-col>
       </ion-row>
     </ion-col>
 
-    <ion-col size="12" sizeMd="5" >
+    <ion-col size="12" sizeMd="5">
       <ion-row class="ion-justify-content-around">
         <ion-col size="9" class="imagem ">
           <img src="{{'./assets/img/foto-perfil.jpeg'}}" alt="">
@@ -180,10 +189,11 @@
       </ion-row>
     </ion-col> -->
   </ion-row>
-  <ion-row id="contato" class="sessao sessao__5 ion-align-items-center ion-justify-content-around ion-padding-top ion-padding-bottom">
+  <ion-row id="contato"
+    class="sessao sessao__5 ion-align-items-center ion-justify-content-around ion-padding-top ion-padding-bottom">
     <ion-col size="11">
       <ion-row class="ion-align-items-center ion-justify-content-center">
-        <ion-label class="title" >Contato</ion-label>
+        <ion-label class="title">Contato</ion-label>
       </ion-row>
     </ion-col>
     <ion-col size="11">
@@ -204,7 +214,9 @@
             [img]="'logo-octocat'"></app-contato>
         </ion-col>
         <ion-col size="11" sizeSm="6" sizeMd="4" sizeLg="3">
-          <app-contato [nome]="'Stack Overflow'" [link]="'https://stackoverflow.com/users/22359187/romulo-gon%c3%a7alves'" [img]="'logo-stackoverflow'"></app-contato>
+          <app-contato [nome]="'Stack Overflow'"
+            [link]="'https://stackoverflow.com/users/22359187/romulo-gon%c3%a7alves'"
+            [img]="'logo-stackoverflow'"></app-contato>
         </ion-col>
       </ion-row>
     </ion-col>

@@ -16,6 +16,9 @@ ion-footer {
       display: flex;
       flex-direction: column;
       gap: 10px;
+      a{
+        text-decoration: none;
+      }
     }
     .apresentacao {
       font-size: 4rem;
