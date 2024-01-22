@@ -36,9 +36,17 @@ ion-footer {
     letter-spacing: 2px;
     min-height: 80vh;
 
-    ion-icon {
+    .icone__pessoa {
       width: 100%;
       font-size: 20rem;
+    }
+
+    a{
+      text-decoration: none;
+    }
+
+    .botao{
+      color: var(--ion-color-secondary);
     }
   }
 
@@ -100,7 +108,7 @@ ion-footer {
     }
 
     &__2 {
-      ion-icon {
+      .icone__pessoa {
         display: none;
       }
     }

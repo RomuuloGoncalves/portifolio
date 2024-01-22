@@ -29,15 +29,7 @@
             <ion-button fill="outline" size="large" (click)="scrollToSection('#projetos')">
               Ver projetos
             </ion-button>
-            <ion-button fill="clear" size="large">
-              <a href="./assets/docs/currículo.pdf" download="curriculo">
 
-                <ion-row class="ion-align-items-center" style="gap: 10px;">
-                  <ion-label>Currículo</ion-label>
-                  <ion-icon name="cloud-download-outline"></ion-icon>
-                </ion-row>
-              </a>
-            </ion-button>
           </ion-row>
         </ion-col>
       </ion-row>
@@ -54,7 +46,7 @@
 
   <ion-row id="sobre" class="sessao sessao__2 ion-align-items-center ion-justify-content-center">
     <ion-col size="11" sizeMd="4">
-      <ion-icon name="person-outline"></ion-icon>
+      <ion-icon class="icone__pessoa" name="person-outline"></ion-icon>
     </ion-col>
     <ion-col size="11" sizeMd="5">
       <ion-row>
@@ -88,6 +80,16 @@
           </p>
         </ion-text>
       </ion-row>
+
+      <ion-button fill="outline" size="large" color="secondary">
+        <a href="./assets/docs/currículo.pdf" download="curriculo">
+          <ion-row class="ion-align-items-center" class="botao" style="gap: 10px;">
+            <ion-label>Currículo</ion-label>
+            <ion-icon class="icone__download" name="cloud-download-outline"></ion-icon>
+          </ion-row>
+        </a>
+      </ion-button>
+
     </ion-col>
   </ion-row>
 
