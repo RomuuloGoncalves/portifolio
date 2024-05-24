@@ -99,51 +99,14 @@
         <ion-label class="title" color="primary">Projetos</ion-label>
       </ion-row>
     </ion-col>
+
+    <!-- Lista de projetos -->
     <ion-col size="11">
       <ion-row class="ion-align-items-center ion-justify-content-center projetos">
-        <ion-col size="11" sizeMd="6" sizeLg="4">
-          <app-projetos [nome]="'TO DO'" [sobre]="'App para criar e planejar tarefas.'"
-            [img]="'./assets/img/todo.jpg' || './assets/img/todo.jpg'"
-            [link]="'https://romuulogoncalves.github.io/todo-app/'"></app-projetos>
-        </ion-col>
-        <ion-col size="11" sizeMd="6" sizeLg="4">
-          <app-projetos [nome]="'Clone do site do Discord'" [sobre]="'Site do Discord usando Tailwind'"
-            [img]="'./assets/img/discord_clone.png' || './assets/img/discord_clone.png'"></app-projetos>
-        </ion-col>
-        <ion-col size="11" sizeMd="6" sizeLg="4">
-
-          <app-projetos [nome]="'Calculadora'" [sobre]="'Calculadora.'"
-            [img]="'./assets/img/calculadora.png' || './assets/img/calculadora.png'"
-            [link]="'https://romuulogoncalves.github.io/calculator/'"></app-projetos>
-        </ion-col>
-
-        <ion-col size="11" sizeMd="6" sizeLg="4">
-          <app-projetos [nome]="'Delivery'" [sobre]="'Aplicativo de delivery.'"
-            [img]="'./assets/img/delivery.png' || './assets/img/delivery.png'"
-            [link]="'https://github.com/RomuuloGoncalves/TCC-Delivery'"></app-projetos>
-        </ion-col>
-        <ion-col size="11" sizeMd="6" sizeLg="4">
-          <app-projetos [nome]="'Países'" [sobre]="'API para coletar dados de países.'"
-            [img]="'./assets/img/rest-api.png' || './assets/img/rest-api.png'"
-            [link]="'https://github.com/RomuuloGoncalves/countries_api'"></app-projetos>
-        </ion-col>
-        <ion-col size="11" sizeMd="6" sizeLg="4">
-          <app-projetos [nome]="'Gerador de senha'" [sobre]="'Sistema para gerar senhas aleatórias'"
-            [img]="'./assets/img/gerador_senha.png' || './assets/img/gerador_senha.png'"
-            [link]="'https://romuulogoncalves.github.io/password-generator/'"></app-projetos>
-        </ion-col>
-      </ion-row>
-
-      <ion-row class="ion-align-items-center ion-justify-content-center">
-        <ion-col size="11" sizeMd="6" sizeLg="4">
-          <app-projetos [nome]="'Jogo da velha'" [sobre]="'Jogo da velha'"
-            [img]="'./assets/img/velha.png' || './assets/img/velha.png'"
-            [link]="'https://romuulogoncalves.github.io/tic-tac-toe/'"></app-projetos>
-        </ion-col>
-        <ion-col size="11" sizeMd="6" sizeLg="4">
-          <app-projetos [nome]="'Pedra, papel ou tesoura'" [sobre]="'Jogo: Pedra, papel ou tesoura'"
-            [img]="'./assets/img/pedra-papel-tesoura.png' || './assets/img/pedra-papel-tesoura.png'"
-            [link]="'https://romuulogoncalves.github.io/rock-paper-scissors/'"></app-projetos>
+        <ion-col size="11" sizeMd="6" sizeLg="4" *ngFor="let projeto of projetos">
+          <app-projetos [nome]="this.projeto[0]" [sobre]="this.projeto[1]"
+          [img]="this.projeto[2]"
+          [link]="this.projeto[3]"></app-projetos>
         </ion-col>
       </ion-row>
     </ion-col>
@@ -156,6 +119,7 @@
       </ion-row>
     </ion-col>
 
+    <!-- Lista de habilidades -->
     <ion-col size="11">
       <ion-row class="ion-justify-content-center">
         <ion-col size="5" sizeSm="6" sizeMd="4" sizeLg="3" sizeMd="2" sizeLg="1.2" *ngFor="let skill of skills">
@@ -164,32 +128,6 @@
       </ion-row>
     </ion-col>
 
-    <!-- <ion-col size="11">
-      <ion-row class="ion-align-items-center">
-        <ion-label class="skill" color="secondary">Tecnologias</ion-label>
-      </ion-row>
-    </ion-col> -->
-
-    <!-- <ion-col size="11">
-      <ion-row class="ion-justify-content-center">
-        <ion-col size="5" sizeSm="6" sizeMd="4" sizeLg="3" sizeMd="2" sizeLg="1.2" *ngFor="let skill of tecnologias">
-          <app-skills [nome]="this.skill[0]" [img]="this.skill[1]"></app-skills>
-        </ion-col>
-      </ion-row>
-    </ion-col> -->
-
-    <!-- <ion-col size="11">
-      <ion-row class="ion-align-items-center">
-        <ion-label class="skill" color="secondary">Ferramentas</ion-label>
-      </ion-row>
-    </ion-col> -->
-    <!-- <ion-col size="11">
-      <ion-row class="ion-justify-content-center">
-        <ion-col size="5" sizeSm="6" sizeMd="4" sizeLg="3" sizeMd="2" sizeLg="1.2" *ngFor="let skill of ferramentas">
-          <app-skills [nome]="this.skill[0]" [img]="this.skill[1]"></app-skills>
-        </ion-col>
-      </ion-row>
-    </ion-col> -->
   </ion-row>
   <ion-row id="contato"
     class="sessao sessao__5 ion-align-items-center ion-justify-content-around ion-padding-top ion-padding-bottom">

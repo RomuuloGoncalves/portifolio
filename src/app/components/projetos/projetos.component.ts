@@ -10,8 +10,8 @@ export class ProjetosComponent  implements OnInit {
   
   ngOnInit() {}
   
-  @Input() nome!:string
-  @Input() img!:string
-  @Input() sobre!:string
-  @Input() link!:string
+  @Input() nome!:any
+  @Input() img!:any
+  @Input() sobre!:any
+  @Input() link!:any
 }
