@@ -16,3 +16,11 @@ ion-card:hover{
     transform: scale(1.04);
 }
 
+ion-text {
+p{
+font-size: inherit;
+    white-space: nowrap; 
+overflow: hidden;
+text-overflow: ellipsis;
+}
+}

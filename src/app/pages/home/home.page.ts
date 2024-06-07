@@ -108,7 +108,8 @@ export class HomePage implements OnInit {
     [
       'Clone do site do Discord',
       'Site do Discord usando Tailwind',
-      './assets/img/discord_clone.png'
+      './assets/img/discord_clone.png',
+      'https://github.com/RomuuloGoncalves/discord_clone'
     ],
     [
       'Calculadora',
