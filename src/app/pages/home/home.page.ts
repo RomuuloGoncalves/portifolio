@@ -82,6 +82,24 @@ export class HomePage implements OnInit {
 
   projetos: any = [
     [
+      'APP - Delivery',
+      'Aplicativo de delivery.',
+      './assets/img/delivery.png',
+      'https://github.com/RomuuloGoncalves/TCC-Delivery'
+    ],
+    [
+      'ATOMOX',
+      'Sistema de monitoramento de qualidade do ar',
+      './assets/img/atomox.png',
+      'https://github.com/RomuuloGoncalves/Projeto-Integrador-ATOMOX'
+    ],
+    [
+      'GEOLAB',
+      'Aplicativo educacional com realidade aumentada',
+      './assets/img/geolab.png',
+      'https://github.com/RomuuloGoncalves/GeoLab'
+    ],
+    [
       'TO DO',
       'App para criar e planejar tarefas.',
       './assets/img/todo.jpg',
@@ -99,29 +117,23 @@ export class HomePage implements OnInit {
       'https://romuulogoncalves.github.io/calculator/'
     ],
     [
-      'Delivery',
-      'Aplicativo de delivery.',
-      './assets/img/delivery.png',
-      'https://github.com/RomuuloGoncalves/TCC-Delivery'
-    ],
-    [
       'Países',
       'API para coletar dados de países.',
       './assets/img/rest-api.png',
       'https://github.com/RomuuloGoncalves/countries_api'
     ],
-    [
-      'Gerador de senha',
-      'Sistema para gerar senhas aleatórias',
-      './assets/img/gerador_senha.png',
-      'https://romuulogoncalves.github.io/password-generator/'
-    ],
-    [
-      'Jogo da velha',
-      'Jogo da velha',
-      './assets/img/velha.png',
-      'https://romuulogoncalves.github.io/tic-tac-toe/'
-    ],
+    // [
+    //   'Gerador de senha',
+    //   'Sistema para gerar senhas aleatórias',
+    //   './assets/img/gerador_senha.png',
+    //   'https://romuulogoncalves.github.io/password-generator/'
+    // ],
+    // [
+    //   'Jogo da velha',
+    //   'Jogo da velha',
+    //   './assets/img/velha.png',
+    //   'https://romuulogoncalves.github.io/tic-tac-toe/'
+    // ],
     [
       'Pedra, papel ou tesoura',
       'Jogo: Pedra, papel ou tesoura',
