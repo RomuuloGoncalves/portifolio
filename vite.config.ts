@@ -11,6 +11,7 @@ export default defineConfig({
     vue(),
     legacy()
   ],
+   base: '/portifolio/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
