@@ -2,7 +2,7 @@ name: Build and Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ "master" ] # O workflow roda toda vez que você atualiza a branch 'main'
+    branches: [ "master" ] # O workflow roda toda vez que você atualiza a branch 'master'
 
 permissions:
   contents: read
@@ -12,6 +12,11 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -19,7 +24,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22.18.0' # Use a versão do Node do seu projeto
+          node-version: '22' 
           cache: 'npm'
 
       - name: Install Dependencies
@@ -34,8 +39,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist' # A pasta que o 'npm run build' gera
+          path: './dist'  
 
       - name: Deploy to GitHub Pages
-        id: deployment
+        id: deployment  
         uses: actions/deploy-pages@v4
