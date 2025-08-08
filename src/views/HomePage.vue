@@ -47,7 +47,7 @@
                 funcionalidades. Busco uma posição de desenvolvedor júnior para continuar aprendendo, contribuir com
                 projetos desafiadores e construir tecnologias que fazem a diferença.
               </p>
-              <ion-button expand="block" href="curriculo.pdf" download="curriculo-romulo-goncalves.pdf" color="primary"
+              <ion-button expand="block" href="/portifolio/curriculo.pdf" download="curriculo-romulo-goncalves.pdf" color="primary"
                 fill="outline">
                 Baixar Currículo
                 <ion-icon slot="end" :icon="downloadOutline"></ion-icon>
