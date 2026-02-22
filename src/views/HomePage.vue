@@ -355,7 +355,7 @@
       <!-- FOOTER -->
       <footer class="footer-custom">
         <p>Desenvolvido com <span class="heart">♥</span> por Rômulo Gonçalves</p>
-        <p class="footer-year">© 2025</p>
+        <p class="footer-year">© 2026</p>
       </footer>
     </ion-content>
   </ion-page>
