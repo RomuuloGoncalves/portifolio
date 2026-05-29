@@ -37,7 +37,7 @@
               <h1 class="hero-name animated-item">
                 Rômulo<br /><span class="gradient-text">Gonçalves</span>
               </h1>
-              <h2 class="hero-role animated-item">Desenvolvedor Full Stack</h2>
+              <h2 class="hero-role animated-item">Desenvolvedor Back-end</h2>
               <p class="hero-description animated-item">
                 Estudante de Engenharia da Computação, apaixonado por criar soluções 
                 que transformam o dia a dia de pessoas e empresas por meio do código.
@@ -82,8 +82,8 @@
           <div class="sobre-grid">
             <div class="sobre-text">
               <p>
-                Sou Desenvolvedor Full Stack com experiência prática na criação e 
-                manutenção de <strong>sistemas complexos</strong>. Minha jornada na tecnologia 
+                Sou Desenvolvedor Back-end com experiência prática na criação e 
+                manutenção de <strong>sistemas complexos</strong> e APIs robustas. Minha jornada na tecnologia 
                 começou com um curso Técnico em Desenvolvimento de Sistemas, que me deu 
                 a base sólida para explorar, construir e escalar soluções inovadoras de 
                 ponta a ponta.
@@ -119,11 +119,11 @@
                 <pre><code><span class="kw">const</span> <span class="fn">romulo</span> = {
   <span class="prop">nome</span>: <span class="str">"Rômulo Gonçalves"</span>,
   <span class="prop">formação</span>: <span class="str">"Eng. Computação"</span>,
-  <span class="prop">cargo</span>: <span class="str">"Full Stack Developer"</span>,
+  <span class="prop">cargo</span>: <span class="str">"Back-end Developer"</span>,
   <span class="prop">paixão</span>: <span class="str">"Resolver problemas reais"</span>,
   <span class="prop">foco</span>: [
-    <span class="str">"Sistemas web"</span>,
-    <span class="str">"ERP de Gestão Escolar"</span>,
+    <span class="str">"Sistemas back-end"</span>,
+    <span class="str">"Criação de APIs REST"</span>,
     <span class="str">"Produtos de impacto"</span>,
   ],
 };</code></pre>
@@ -139,7 +139,7 @@
             <h3 class="section-title">Experiência<span class="dot">.</span></h3>
           </div>
           <div class="timeline">
-            <!-- Desenvolvedor Full Stack -->
+            <!-- Desenvolvedor Back-end -->
             <div class="timeline-item">
               <div class="timeline-marker">
                 <div class="timeline-dot active-dot"></div>
@@ -148,12 +148,38 @@
               <div class="timeline-content glass-card">
                 <div class="timeline-header">
                   <div>
-                    <h4 class="timeline-role">Desenvolvedor Full Stack</h4>
-                    <p class="timeline-company">Education One — Sorocaba / SP</p>
+                    <h4 class="timeline-role">Desenvolvedor Back-end</h4>
+                    <p class="timeline-company">AGX Software — Sorocaba / SP</p>
                   </div>
                   <span class="timeline-badge">Atual</span>
                 </div>
-                <p class="timeline-period">11/2025 — Presente</p>
+                <p class="timeline-period">04/2026 — Presente</p>
+                <p class="timeline-desc">
+                  Desenvolvimento e manutenção de serviços back-end. Atuação focada em análise e correção de tickets, desenvolvimento de novas funcionalidades sistêmicas, e arquitetura e criação de APIs RESTful utilizando tecnologias modernas.
+                </p>
+                <div class="timeline-tags">
+                  <span class="tag">Node.js</span>
+                  <span class="tag">TypeScript</span>
+                  <span class="tag">MongoDB</span>
+                  <span class="tag">Git</span>
+                  <span class="tag">GitHub</span>
+                </div>
+              </div>
+            </div>
+            <!-- Desenvolvedor Full Stack -->
+            <div class="timeline-item">
+              <div class="timeline-marker">
+                <div class="timeline-dot"></div>
+                <div class="timeline-line"></div>
+              </div>
+              <div class="timeline-content glass-card">
+                <div class="timeline-header">
+                  <div>
+                    <h4 class="timeline-role">Desenvolvedor Full Stack</h4>
+                    <p class="timeline-company">Education One — Sorocaba / SP</p>
+                  </div>
+                </div>
+                <p class="timeline-period">11/2025 — 04/2026</p>
                 <p class="timeline-desc">
                   Análise técnica dos tickets criados pela equipe de suporte técnico. 
                   Correção de erros e manutenção do sistema de ERP de Gestão Escolar. 

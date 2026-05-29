@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  portifolio-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: portifolio-app
+    ports:
+      - "8080:5173"
+    volumes:
+      # Mapeia a pasta atual do seu PC para dentro do container na pasta /app
+      - .:/app
+      # Evita que a pasta node_modules do seu PC sobrescreva a do container
+      - /app/node_modules
+    restart: unless-stopped
