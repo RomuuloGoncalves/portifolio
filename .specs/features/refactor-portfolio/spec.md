@@ -1,6 +1,6 @@
 # Refatoração do Portfólio — Especificação
 
-> Status: rascunho para aprovação (rev. 2, 2026-10-29). Direção visual **aprovada: protótipo C** (`prototype-c/`). O site novo é construído na branch `production`; `master` continua servindo o site antigo até a troca (D-15). Nenhuma linha do código do site é tocada antes da aprovação desta spec e de D-01.
+> Status: rascunho para aprovação (rev. 2, 2026-10-29). Direção visual **aprovada: protótipo C** (`prototype-c/`). O site novo é construído na branch `v3`; `homologacao` recebe os deploys de teste; `v2` guarda o backup do site antigo; `master` continua servindo o site antigo até a troca (D-15). Nenhuma linha do código do site é tocada antes da aprovação desta spec e de D-01.
 
 ## Problem Statement
 
@@ -13,7 +13,7 @@ O portfólio em `src/views/HomePage.vue` (1.743 linhas, dados e estilo no mesmo 
 - [ ] Trocar a seção de habilidades por uma lista atual e honesta, com ícones atualizados (Node.js, TypeScript, MongoDB etc.).
 - [ ] Reproduzir o visual do protótipo C (Geist, preto frio, acento pinho, `GET /rota`, Pipeline Inspector) com os ajustes aprovados de `research/review-c.md`.
 - [ ] Texto em primeira pessoa, específico e verificável, sem clichês.
-- [ ] Publicar o site novo na Vercel (projeto `portifolio`) a partir da branch `production`, sem mexer no site antigo em `master`.
+- [ ] Publicar o site novo na Vercel (projeto `portifolio`): `homologacao` gera preview automático a cada push, e a produção segue a `master` só quando o usuário trocar o site.
 
 ## Out of Scope
 
@@ -48,7 +48,7 @@ O portfólio em `src/views/HomePage.vue` (1.743 linhas, dados e estilo no mesmo 
 | D-12 | Texto do STATUS na ficha SYSTEM_INFO | **ABERTA [CONFIRMAR].** Padrão: omitir a linha STATUS até o usuário aprovar um texto verdadeiro ("Aberto a conversar" só com OK dele; hoje está empregado na AGX) | STATUS falso é pior que ausente | n |
 | D-13 | Print a partir do deploy público (Vercel/GitHub Pages) dos projetos | **ABERTA.** Padrão: não; print só do app rodando local sem banco, ou enviado pelo usuário | Deploy público lê o banco real do projeto e pode mostrar dados reais | n |
 | D-14 | Trechos de código do Pipeline Inspector | Conferir contra o código real dos repos (só leitura) e marcar `[CONFIRMAR]` o que não bater | Evita repetir o erro do Design B (métricas inventadas) | n |
-| D-15 | Quando o site novo substitui o antigo | **ABERTA.** Padrão: `production` vive na Vercel; `master` + GitHub Pages ficam intactos até o usuário pedir a troca | Troca é ação externa | n |
+| D-15 | Quando o site novo substitui o antigo | **ABERTA.** Padrão: o site novo vive em `v3` → `homologacao` até o usuário pedir a troca; ao trocar, `v3` entra na `master` e a Vercel de produção (que segue a `master`) atualiza sozinha; `master` + GitHub Pages ficam intactos até lá | Troca é ação externa | n |
 | D-16 | URL pública do currículo e demo do lauressucrier | `[CONFIRMAR]` com o usuário | Repo privado; não inventar URL | n |
 | D-17 | Paleta | Fundo **Preto frio** (`#0A0B0D`) + acento **Pinho** (`#2FA586` / `#1A6B55`), centralizados em `palette.css`; Carvão e Sálvia ficam comentados como alternativas | Escolhido pelo usuário no protótipo D | y |
 | D-18 | Seção "Anatomia de uma requisição" | Nasce da análise real de cada projeto (T5), projeto a projeto, como a seção de Projetos; os cenários do protótipo C (projetoAGX e Liftech) são rascunho e podem mudar de etapas, nomes e quantidade | Pedido do usuário: sem a análise a seção perde o sentido | y |
@@ -148,9 +148,10 @@ O portfólio em `src/views/HomePage.vue` (1.743 linhas, dados e estilo no mesmo 
 
 ### P2: Branch e deploy
 
-1. **DEPLOY-01** O site novo SHALL ser construído só na branch `production` (criada de `master`, com o commit `51835fb`: `base` via `VITE_BASE` e `vercel.json`); `master` SHALL NOT receber commits desta feature. <!-- ubiquitous -->
-2. **DEPLOY-02** WHEN o usuário autorizar o deploy THEN ele SHALL ser feito pela Vercel CLI no projeto `portifolio` (https://portifolio-chi-peach-73.vercel.app) a partir de `production`, com `VITE_BASE=/`. <!-- event-driven -->
-3. **DEPLOY-03** A build sem `VITE_BASE` SHALL continuar gerando `base: '/portifolio/'` (GitHub Pages do `master` intacto). <!-- ubiquitous -->
+1. **DEPLOY-01** O site novo SHALL ser construído só na branch `v3` (criada de `master`, já com o commit `base` via `VITE_BASE` + `vercel.json`); `master` SHALL NOT receber commits desta feature até a troca (D-15); `v2` SHALL ser o backup do site antigo. <!-- ubiquitous -->
+2. **DEPLOY-02** WHEN houver push na branch `homologacao` THEN a Vercel (integração Git do projeto `portifolio`) SHALL gerar o deploy e o link da branch (`portifolio-git-homologacao-romuulogoncalves-projects.vercel.app`) SHALL passar a mostrar esse deploy, sem alias manual apontando para um deploy fixo. <!-- event-driven -->
+3. **DEPLOY-03** A build sem `VITE_BASE` SHALL continuar gerando `base: '/portifolio/'` (GitHub Pages do `master` intacto), e a Vercel SHALL definir `VITE_BASE=/` pelo `vercel.json`. <!-- ubiquitous -->
+4. **DEPLOY-04** WHEN o usuário pedir a troca (D-15) THEN `v3` SHALL entrar na `master` e a produção da Vercel (branch de produção `master`) SHALL atualizar a cada push, sem alias manual. <!-- event-driven -->
 
 ### P2: Protótipo guia (entregável da Fase 0)
 
@@ -237,6 +238,7 @@ O portfólio em `src/views/HomePage.vue` (1.743 linhas, dados e estilo no mesmo 
 | DEPLOY-01 | P2 Deploy | T6, T14 | Pending |
 | DEPLOY-02 | P2 Deploy | T14 | Pending |
 | DEPLOY-03 | P2 Deploy | T6 | Pending |
+| DEPLOY-04 | P2 Deploy | T14 | Pending |
 | PROTO-01 | P2 Protótipo | T2 | Verified |
 | PROTO-02 | P2 Protótipo | T2 | Verified |
 | PROTO-03 | P2 Protótipo | T2 | Verified |

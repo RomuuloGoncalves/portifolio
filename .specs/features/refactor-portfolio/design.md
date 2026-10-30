@@ -84,5 +84,5 @@ Ordem de preferência por projeto:
 - Conteúdo em `src/data/portfolio.ts` (DADOS-01); componentes por seção só se a página passar de ~400 linhas.
 - Pipeline: cenários e etapas como dados em `portfolio.ts`; a lógica de abas/acordeão vem de `prototype-c/main.js` (`matchMedia('(max-width: 1023px)')`).
 - Imagens: converter uma vez offline (sem plugin de build). Foto: `foto-perfil.avif`/`.webp` em 600 e 1200 px.
-- Branch `production` (já tem `51835fb`: `vite.config.ts` usa `process.env.VITE_BASE ?? '/portifolio/'`; `vercel.json` com `VITE_BASE=/` e rewrite SPA). `master` e `.github/workflows/deploy.yml` (dispara só em `master`) não mudam.
+- Branches: `v2` (backup), `v3` (desenvolvimento, já tem o commit de deploy:  `vite.config.ts` usa `process.env.VITE_BASE ?? '/portifolio/'`; `vercel.json` com `VITE_BASE=/` e rewrite SPA). `master` e `.github/workflows/deploy.yml` (dispara só em `master`) não mudam.
 - Deploy: `vercel deploy --prod` pela CLI no projeto `portifolio`, só com pedido do usuário (T14).

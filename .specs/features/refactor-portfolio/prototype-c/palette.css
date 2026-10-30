@@ -90,9 +90,11 @@
 }
 
 /* --------------------------------------------------------------------------
-   4) CORES DO CÓDIGO (sobre --bg-terminal; no tema claro o terminal muda por VIS-10, pendente em T2)
+   4) CÓDIGO E TERMINAL (contraste >= 4,5:1 sobre --bg-terminal nos dois temas)
    -------------------------------------------------------------------------- */
-:root {
+:root, [data-theme="dark"] {
+  --code-text: #C9C7BE;
+  --code-file: #ADABA1;
   --c-kw: #E08A6C;   /* palavra-chave: terracota */
   --c-str: #A5C98F;  /* string: verde-folha */
   --c-num: #E3B86E;  /* número: âmbar */
@@ -100,4 +102,19 @@
   --c-ty: #6FC4B4;   /* tipo/classe: turquesa */
   --c-pr: #B9A8E8;   /* propriedade/chave: lavanda */
   --c-cm: #85837A;   /* comentário */
+}
+
+/* Claro (VIS-10): terminal em superfície clara com texto escuro, não preto chapado */
+[data-theme="light"] {
+  --bg-terminal: #E4E4DE;
+  --code-line: #D9D9D2;
+  --code-text: #2A2B27;
+  --code-file: #4A4B45;
+  --c-kw: #A23F1C;
+  --c-str: #3F6B26;
+  --c-num: #7A5600;
+  --c-fn: #1F5B99;
+  --c-ty: #126B5D;
+  --c-pr: #5B45A8;
+  --c-cm: #5F5E57;
 }

@@ -4,7 +4,7 @@
 
 Implemente estas tarefas com a skill `tlc-spec-driven`: **ative pelo nome e siga o fluxo Execute e as Critical Rules.** Se a skill não puder ser ativada, PARE e avise o usuário.
 
-**Regras globais para todo executor:** nunca acessar banco de dados (nenhum projeto, nenhum ambiente, nenhum meio); sem `git push` nem deploy sem pedido explícito do usuário; código do site só na branch `production`, nunca em `master`.
+**Regras globais para todo executor:** nunca acessar banco de dados (nenhum projeto, nenhum ambiente, nenhum meio); sem `git push` nem deploy sem pedido explícito do usuário; código do site só na branch `v3`, nunca em `master`.
 
 ---
 
@@ -46,7 +46,7 @@ T3 → T4
 T5
 ```
 
-### Phase 1: Base na branch production (após aprovação da spec e de D-01)
+### Phase 1: Base na branch v3 (após aprovação da spec e de D-01)
 
 ```
 T6 → T7 → T8
@@ -117,9 +117,9 @@ T13 → T14
 
 **Done when**:
 
-- [ ] Tabela com os 6 projetos: classificação, evidência `arquivo:linha`, comando de subida (só para "roda sem banco"), tela-alvo
-- [ ] Nenhum `.env` real lido, nenhuma string de conexão copiada, nenhum app executado nesta tarefa
-- [ ] Lista do que o usuário precisa mandar (prints de projetos "precisa de banco"/"indefinido") e pergunta D-13 registrada
+- [x] Tabela com os 6 projetos: classificação, evidência `arquivo:linha`, comando de subida (só para "roda sem banco"), tela-alvo
+- [x] Nenhum `.env` real lido, nenhuma string de conexão copiada, nenhum app executado nesta tarefa
+- [x] Lista do que o usuário precisa mandar (prints de projetos "precisa de banco"/"indefinido") e pergunta D-13 registrada
 
 **Tests**: none (documento)
 **Gate**: revisão manual do usuário
@@ -165,20 +165,20 @@ Checklist anti-vazamento (cada print, registrado em `screenshots.md`):
 
 **Done when**:
 
-- [ ] Uma seção por projeto analisado, com árvore de pastas, camadas reais e fluxo de um caso de uso rastreado com `repo/arquivo:linha` em cada passo
-- [ ] Etapas propostas por projeto derivadas da análise (sem forçar modelo único); toda etapa com origem `repo/arquivo:linha` ou `[CONFIRMAR]`
-- [ ] Projetos sem fluxo de back-end analisável listados como fora da seção, com o motivo
-- [ ] Nenhum `.env` lido, nenhuma string de conexão copiada, nenhum app executado, nenhum banco acessado
-- [ ] Nenhum número/métrica sem fonte; lista final de abas para aprovação do usuário
+- [x] Uma seção por projeto analisado, com árvore de pastas, camadas reais e fluxo de um caso de uso rastreado com `repo/arquivo:linha` em cada passo
+- [x] Etapas propostas por projeto derivadas da análise (sem forçar modelo único); toda etapa com origem `repo/arquivo:linha` ou `[CONFIRMAR]`
+- [x] Projetos sem fluxo de back-end analisável listados como fora da seção, com o motivo
+- [x] Nenhum `.env` lido, nenhuma string de conexão copiada, nenhum app executado, nenhum banco acessado
+- [x] Nenhum número/métrica sem fonte; lista final de abas para aprovação do usuário
 
 **Tests**: none (documento)
 **Gate**: revisão manual do usuário
 
 ---
 
-### T6: Base limpa na branch production: dados tipados + metadados + teste
+### T6: Base limpa na branch v3: dados tipados + metadados + teste
 
-**What**: Em `production`, criar `src/data/portfolio.ts` (tipos + conteúdo de `content.md`), corrigir `<title>` ("Rômulo Gonçalves · Desenvolvedor back-end", hoje diz "Full Stack"), description, OG e viewport em `index.html`, e trocar `example.spec.ts` por `portfolio.spec.ts`.
+**What**: Em `v3`, criar `src/data/portfolio.ts` (tipos + conteúdo de `content.md`), corrigir `<title>` ("Rômulo Gonçalves · Desenvolvedor back-end", hoje diz "Full Stack"), description, OG e viewport em `index.html`, e trocar `example.spec.ts` por `portfolio.spec.ts`.
 **Where**: `src/data/portfolio.ts`
 **Depends on**: None (Fase 0 concluída e spec + D-01 aprovados)
 **Reuses**: arrays `projetosDestaque`, `outrosProjetos`, `categorias`, `linksContato` de `src/views/HomePage.vue`; `vite.config.ts` com `VITE_BASE` (commit `51835fb`)
@@ -186,7 +186,7 @@ Checklist anti-vazamento (cada print, registrado em `screenshots.md`):
 
 **Done when**:
 
-- [ ] `git branch --show-current` = `production`
+- [ ] `git branch --show-current` = `v3`
 - [ ] Teste: todo projeto tem os campos de DADOS-03 e descrição ≤ 220 caracteres
 - [ ] Teste: cargo de `portfolio.ts` aparece em `index.html` e "Full Stack" não aparece
 - [ ] Teste: `index.html` não contém `user-scalable=no`
@@ -337,11 +337,11 @@ Checklist anti-vazamento (cada print, registrado em `screenshots.md`):
 
 ### T14: Deploy na Vercel (só com pedido do usuário)
 
-**What**: Com autorização explícita, publicar `production` pela Vercel CLI no projeto `portifolio` (`vercel deploy --prod`, `vercel.json` já define `VITE_BASE=/`) e conferir https://portifolio-chi-peach-73.vercel.app. `master` e GitHub Pages ficam intactos (D-15).
+**What**: Com autorização explícita, dar push em `homologacao` (deploy automático pela integração Git; conferir o link da branch) e, na troca (D-15), merge de `v3` na `master` com produção da Vercel seguindo a `master`. `master` e GitHub Pages ficam intactos (D-15).
 **Where**: `vercel.json`
 **Depends on**: T13
 **Reuses**: commit `51835fb`
-**Requirement**: DEPLOY-01, DEPLOY-02
+**Requirement**: DEPLOY-01, DEPLOY-02, DEPLOY-04
 
 **Done when**:
 
