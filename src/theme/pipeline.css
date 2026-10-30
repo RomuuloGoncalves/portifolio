@@ -1,0 +1,2 @@
+@media (min-width: 768px) { .scenarios { flex-wrap: wrap; } }
+@media (min-width: 1024px) { .pipe__nodes { grid-template-columns: repeat(var(--etapas), minmax(0, 1fr)); } }

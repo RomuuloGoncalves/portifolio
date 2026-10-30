@@ -1,33 +1,25 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR" data-theme="dark">
 
 <head>
   <meta charset="utf-8" />
-  <title>Rômulo Gonçalves | Desenvolvedor Full Stack</title>
-  <meta name="description"
-    content="Portfólio de Rômulo Gonçalves — Desenvolvedor Full Stack apaixonado por construir soluções de alto impacto. PHP, Laravel, Angular, Vue, React e mais." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light" />
+  <title>Rômulo Gonçalves · Desenvolvedor back-end</title>
+  <meta name="description" content="Rômulo Gonçalves, desenvolvedor back-end em Node.js, TypeScript e MongoDB na AGX Software, Sorocaba/SP." />
 
-  <base href="/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content="Rômulo Gonçalves · Desenvolvedor back-end" />
+  <meta property="og:description" content="Rômulo Gonçalves, desenvolvedor back-end em Node.js, TypeScript e MongoDB na AGX Software, Sorocaba/SP." />
 
-  <meta name="color-scheme" content="light dark" />
-  <meta name="viewport"
-    content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="format-detection" content="telephone=no" />
-  <meta name="msapplication-tap-highlight" content="no" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
 
-  <link rel="shortcut icon" type="image/png" href="/favicon.png" />
-
-  <!-- add to homescreen for ios -->
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-title" content="Rômulo Gonçalves" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
-    rel="stylesheet">
+  <script>
+    // tema salvo ou do sistema, aplicado antes do primeiro paint (TEMA-01/02)
+    document.documentElement.dataset.theme = localStorage.getItem('theme') ??
+      (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  </script>
 </head>
 
 <body>

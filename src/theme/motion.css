@@ -1,0 +1,5 @@
+@media (prefers-reduced-motion: no-preference) {
+  .marquee:focus-within .marquee__track { animation-play-state: paused; }
+  /* folga para o deslocamento do fallback JS, igual à do caminho scroll-driven */
+  .js-fallback .photo img { height: 112%; }
+}
