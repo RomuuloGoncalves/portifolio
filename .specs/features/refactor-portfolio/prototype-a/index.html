@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Rômulo Gonçalves · Desenvolvedor back-end</title>
+  <meta name="description" content="Desenvolvedor back-end em Sorocaba / SP. APIs em Node.js, TypeScript e MongoDB na AGX Software.">
+  <script>
+    // tema antes do primeiro paint (evita flash)
+    document.documentElement.dataset.theme = localStorage.getItem('theme') ??
+      (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..600&family=Geist+Mono:wght@400..500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- 5.1 Barra de requisição -->
+  <header class="bar">
+    <div class="bar-inner">
+      <a class="logo" href="#topo" aria-label="Rômulo Gonçalves, início"><span>&lt;</span>RG <span>/&gt;</span></a>
+
+      <button class="reqline" type="button" popovertarget="rotas" aria-label="Seção atual e menu de seções">
+        <span class="reqline-method">GET</span>
+        <span class="reqline-route" id="rota-atual">/</span>
+        <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+      </button>
+      <nav id="rotas" popover aria-label="Seções">
+        <ul>
+          <li><a href="#topo" data-route="/">/</a></li>
+          <li><a href="#sobre" data-route="/sobre">/sobre</a></li>
+          <li><a href="#trajetoria" data-route="/trajetoria">/trajetoria</a></li>
+          <li><a href="#projetos" data-route="/projetos">/projetos</a></li>
+          <li><a href="#stack" data-route="/stack">/stack</a></li>
+          <li><a href="#contato" data-route="/contato">/contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="bar-right">
+        <ul class="bar-links">
+          <li><a href="#trajetoria">Trajetória</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+        <button class="theme" type="button" id="tema" aria-label="Alternar tema claro/escuro">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="bar-progress" aria-hidden="true"></div>
+  </header>
+
+  <main id="conteudo">
+    <!-- 5.2 Hero -->
+    <section class="hero" id="topo" data-route="/">
+      <div class="wrap hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">Rômulo Gonçalves</p>
+          <h1>Desenvolvedor back-end.</h1>
+          <p class="hero-sub">APIs em Node.js, TypeScript e MongoDB na AGX Software. Antes, PHP e Laravel em ERP escolar.</p>
+          <div class="ctas">
+            <a class="btn btn-primary" href="#projetos">Ver projetos</a>
+            <a class="btn btn-ghost" href="../../../../public/curriculo.pdf" download="curriculo-romulo-goncalves.pdf">Baixar currículo</a>
+          </div>
+        </div>
+        <figure class="hero-photo px-media">
+          <!-- ponytail: JPEG original 3000x4000 (680 KB); converter para AVIF/WebP com srcset na versão final -->
+          <img src="../../../../src/assets/img/foto-perfil.jpeg" alt="Rômulo Gonçalves" width="3000" height="4000" fetchpriority="high">
+        </figure>
+      </div>
+    </section>
+
+    <!-- 5.3 Sobre -->
+    <section class="section sobre" id="sobre" data-route="/sobre">
+      <span class="px-watermark" aria-hidden="true">/sobre</span>
+      <div class="wrap">
+        <h2 class="visually-hidden" tabindex="-1">Sobre</h2>
+        <p class="manifesto reveal">Escrevo e mantenho APIs em produção. Comecei no técnico em 2021 e hoje estudo Engenharia da Computação.</p>
+        <div class="sobre-grid">
+          <div class="sobre-text reveal">
+            <p>Sou desenvolvedor back-end. Comecei no curso técnico de Desenvolvimento de Sistemas na Etec de Tatuí, entrei como estagiário na Education1 em 2024 e hoje escrevo APIs na AGX Software. Meu dia a dia é analisar tickets, corrigir bugs e criar funcionalidades novas.</p>
+            <!-- [CONFIRMAR] se os projetos são só acadêmicos ou também por hobby; e de qual curso é o TCC do delivery -->
+            <p>Faço Engenharia da Computação na Uniso. Fora do trabalho tenho projetos próprios e em equipe, de uma API de biblioteca em Deno a um monitor de qualidade do ar com ESP32.</p>
+          </div>
+          <dl class="ficha reveal">
+            <div><dt>cargo</dt><dd>Desenvolvedor back-end, AGX Software</dd></div>
+            <div><dt>stack</dt><dd>Node.js · TypeScript · MongoDB</dd></div>
+            <div><dt>antes</dt><dd>PHP · Laravel · MySQL</dd></div>
+            <div><dt>formação</dt><dd>Eng. da Computação, Uniso (em curso)</dd></div>
+            <div><dt>certificados</dt><dd>MongoDB (3) · Docker</dd></div>
+            <div><dt>base</dt><dd>Sorocaba / SP</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5.4 Trajetória: trace -->
+    <section class="section trajetoria" id="trajetoria" data-route="/trajetoria">
+      <span class="px-watermark" aria-hidden="true">/trajetoria</span>
+      <div class="wrap">
+        <h2 tabindex="-1">Trajetória</h2>
+        <p class="hint">Trabalho e estudo em paralelo, com as datas reais. Selecione um trecho para ver o detalhe.</p>
+        <!-- [CONFIRMAR] incluir ou não "Desenvolvedor full stack, Autônomo, 01/2023 a 12/2023" (está no LinkedIn) -->
+        <div class="trace">
+          <div class="trace-lanes" aria-hidden="true"><span>trabalho</span><span>formação</span></div>
+          <div class="trace-track">
+            <div class="trace-axis" aria-hidden="true"></div>
+            <ol class="trace-spans">
+              <li data-lane="formacao" data-start="2021-02" data-end="2023-12">
+                <button type="button" aria-pressed="false">
+                  <span class="span-name">Técnico em Desenvolvimento de Sistemas, Etec Sales Gomes</span>
+                  <span class="span-time"><time datetime="2021-02">02/2021</time> a <time datetime="2023-12">12/2023</time></span>
+                  <span class="span-bar" aria-hidden="true"></span>
+                </button>
+                <div class="span-desc">
+                  <p class="span-meta">Tatuí / SP · concluído</p>
+                  <p>Curso técnico integrado ao ensino médio. Estudei lógica de programação, estrutura de dados, banco de dados e desenvolvimento web.</p>
+                </div>
+              </li>
+              <li data-lane="formacao" data-start="2024-02" data-end="">
+                <button type="button" aria-pressed="false">
+                  <span class="span-name">Engenharia da Computação, Uniso</span>
+                  <span class="span-time"><time datetime="2024-02">02/2024</time> a hoje</span>
+                  <span class="span-bar" aria-hidden="true"></span>
+                </button>
+                <div class="span-desc">
+                  <p class="span-meta">Sorocaba / SP · em curso</p>
+                  <!-- [CONFIRMAR] semestre atual e matérias a destacar -->
+                  <p>Graduação em andamento. Aluno Top da Uniso cinco vezes.</p>
+                </div>
+              </li>
+              <li data-lane="trabalho" data-start="2024-10" data-end="2025-11">
+                <button type="button" aria-pressed="false">
+                  <span class="span-name">Estágio, Education1</span>
+                  <span class="span-time"><time datetime="2024-10">10/2024</time> a <time datetime="2025-11">11/2025</time></span>
+                  <span class="span-bar" aria-hidden="true"></span>
+                </button>
+                <div class="span-desc">
+                  <p class="span-meta">Sorocaba / SP</p>
+                  <p>Analisava tickets, corrigia bugs, implantava melhorias nas plataformas e customizava sistemas.</p>
+                  <ul class="tags"><li>PHP</li><li>Laravel</li><li>JavaScript</li><li>HTML/CSS</li><li>MySQL</li><li>Git</li></ul>
+                </div>
+              </li>
+              <li data-lane="trabalho" data-start="2025-11" data-end="2026-04">
+                <button type="button" aria-pressed="false">
+                  <span class="span-name">Full Stack, Education1</span>
+                  <span class="span-time"><time datetime="2025-11">11/2025</time> a <time datetime="2026-04">04/2026</time></span>
+                  <span class="span-bar" aria-hidden="true"></span>
+                </button>
+                <div class="span-desc">
+                  <p class="span-meta">Remoto</p>
+                  <p>Recebia os tickets do suporte, achava a causa e corrigia no ERP de gestão escolar, nos módulos de matrículas e financeiro. Também criei funcionalidades e telas novas, escrevi queries SQL, documentei e refatorei código.</p>
+                  <ul class="tags"><li>PHP</li><li>Laravel</li><li>JavaScript</li><li>jQuery</li><li>MySQL</li><li>SQL</li><li>Git</li></ul>
+                </div>
+              </li>
+              <li data-lane="trabalho" data-start="2026-04" data-end="" data-default>
+                <button type="button" aria-pressed="true">
+                  <span class="span-name">Back-end, AGX Software</span>
+                  <span class="span-time"><time datetime="2026-04">04/2026</time> a hoje</span>
+                  <span class="span-bar" aria-hidden="true"></span>
+                </button>
+                <div class="span-desc">
+                  <p class="span-meta">Sorocaba / SP · presencial</p>
+                  <!-- [CONFIRMAR] se desenha as APIs do zero ou implementa sobre desenho existente -->
+                  <p>Desenvolvo e mantenho serviços back-end. Analiso e corrijo tickets, crio funcionalidades novas e projeto APIs REST em Node.js e TypeScript, com MongoDB.</p>
+                  <ul class="tags"><li>Node.js</li><li>TypeScript</li><li>MongoDB</li><li>Git</li><li>GitHub</li></ul>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div class="trace-panel" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- 5.5 Projetos -->
+    <section class="section projetos" id="projetos" data-route="/projetos">
+      <span class="px-watermark" aria-hidden="true">/projetos</span>
+      <div class="wrap">
+        <h2 tabindex="-1">Projetos</h2>
+        <div class="proj-grid">
+          <ol class="proj-list">
+            <!-- [CONFIRMAR] screenshots de Liftech, projetoAGX, Moni e soloTrack (não existem em src/assets/img) -->
+            <li>
+              <figure class="shot shot-empty" data-name="Liftech"><span>github.com/RomuuloGoncalves/<b>Liftech</b></span><span>screenshot pendente</span></figure>
+              <a class="proj" href="https://github.com/RomuuloGoncalves/Liftech" target="_blank" rel="noopener" aria-label="Liftech, repositório no GitHub (abre em nova aba)">
+                <div class="proj-head"><h3>Liftech</h3><span class="proj-year">2026 <svg class="ico-out" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span></div>
+                <p>Monorepo TypeScript com API Express e MongoDB (Mongoose), organizada em módulos por domínio, com validação por feature e testes em Vitest. Front React em 7 idiomas.</p>
+                <span class="proj-tech">node · express · mongoose · vitest · react</span>
+              </a>
+            </li>
+            <li>
+              <figure class="shot shot-empty" data-name="projetoAGX"><span>github.com/RomuuloGoncalves/<b>projetoAGX</b></span><span>screenshot pendente</span></figure>
+              <a class="proj" href="https://github.com/RomuuloGoncalves/projetoAGX" target="_blank" rel="noopener" aria-label="projetoAGX, repositório no GitHub (abre em nova aba)">
+                <div class="proj-head"><h3>projetoAGX</h3><span class="proj-year">2026 <svg class="ico-out" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span></div>
+                <p>API de biblioteca em Deno, Express e Mongoose. JWT, controle de acesso por papel, blacklist de tokens e baixa de estoque atômica com transações. Swagger e testes de integração.</p>
+                <span class="proj-tech">deno · express · mongoose · jwt · swagger · supertest</span>
+              </a>
+            </li>
+            <li>
+              <figure class="shot shot-empty" data-name="Moni"><span>github.com/RomuuloGoncalves/<b>Moni</b></span><span>screenshot pendente</span></figure>
+              <!-- [CONFIRMAR] URL do deploy na Vercel para linkar a demo -->
+              <a class="proj" href="https://github.com/RomuuloGoncalves/Moni" target="_blank" rel="noopener" aria-label="Moni, repositório no GitHub (abre em nova aba)">
+                <div class="proj-head"><h3>Moni</h3><span class="proj-year">2026 <svg class="ico-out" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span></div>
+                <p>App Next.js com MongoDB e NextAuth, separado em repositories, services e models. Testes unitários e de integração em Vitest. No ar na Vercel.</p>
+                <span class="proj-tech">next.js · mongodb · nextauth · vitest</span>
+              </a>
+            </li>
+            <li>
+              <figure class="shot shot-empty" data-name="soloTrack"><span>github.com/RomuuloGoncalves/<b>soloTrack</b></span><span>screenshot pendente</span></figure>
+              <a class="proj" href="https://github.com/RomuuloGoncalves/soloTrack" target="_blank" rel="noopener" aria-label="soloTrack, repositório no GitHub (abre em nova aba)">
+                <div class="proj-head"><h3>soloTrack</h3><span class="proj-year">2026 <svg class="ico-out" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span></div>
+                <p>Projeto em equipe: sensores IoT com firmware em C++, API Laravel com contrato OpenAPI, front React e agente de IA via MCP. Sobe com docker-compose.</p>
+                <span class="proj-tech">laravel · openapi · react · c++ · docker</span>
+              </a>
+            </li>
+            <li>
+              <figure class="shot"><img src="../../../../src/assets/img/ongflow.png" alt="Tela do ONGFlow" width="1920" height="961" loading="lazy"></figure>
+              <a class="proj" href="https://github.com/RomuuloGoncalves/ONGFlow" target="_blank" rel="noopener" aria-label="ONGFlow, repositório no GitHub (abre em nova aba)">
+                <div class="proj-head"><h3>ONGFlow</h3><span class="proj-year">2025 <svg class="ico-out" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span></div>
+                <p>Plataforma que conecta voluntários a ONGs e ajuda as ONGs a organizar suas ações. API Laravel 12 e front React, com deploy por GitHub Actions.</p>
+                <span class="proj-tech">laravel · react · vite · github actions</span>
+              </a>
+            </li>
+          </ol>
+
+          <div class="proj-panel" aria-hidden="true"></div>
+        </div>
+
+        <details class="mais">
+          <summary>Mais no GitHub</summary>
+          <ul class="mais-list">
+            <li>
+              <!-- [CONFIRMAR] repo privado: URL pública do deploy na Vercel para linkar -->
+              <span class="mais-name">Laure's Sucrier <span class="mais-year">2026 · freela</span></span>
+              <span>Landing page 3D para cliente, com Three.js, GSAP e testes em Vitest.</span>
+            </li>
+            <li>
+              <a class="mais-name" href="https://github.com/RomuuloGoncalves/calculadora_compiladores" target="_blank" rel="noopener">Mini Interpretador Matemático <span class="mais-year">2025</span><span class="visually-hidden"> (abre em nova aba)</span></a>
+              <span>Trabalho de compiladores: análise léxica e sintática com PLY, tabela de símbolos e tratamento de erros.</span>
+            </li>
+            <li>
+              <a class="mais-name" href="https://github.com/RomuuloGoncalves/Projeto-Integrador" target="_blank" rel="noopener">ATOMOX <span class="mais-year">2024</span><span class="visually-hidden"> (abre em nova aba)</span></a>
+              <span>Monitor de qualidade do ar com ESP32 e uma interface web que mostra os dados em tempo real.</span>
+            </li>
+            <li>
+              <a class="mais-name" href="https://github.com/RomuuloGoncalves/GeoLab" target="_blank" rel="noopener">GeoLab <span class="mais-year">2024</span><span class="visually-hidden"> (abre em nova aba)</span></a>
+              <span>App educacional com salas virtuais e objetos 3D em realidade aumentada.</span>
+            </li>
+            <li>
+              <a class="mais-name" href="https://github.com/RomuuloGoncalves/TCC-Delivery" target="_blank" rel="noopener">App Delivery <span class="mais-year">2023</span><span class="visually-hidden"> (abre em nova aba)</span></a>
+              <span>App de delivery com área do cliente e painel para a loja. Angular, Ionic e PHP.</span>
+            </li>
+          </ul>
+        </details>
+      </div>
+    </section>
+
+    <!-- 5.6 Stack -->
+    <section class="section stack" id="stack" data-route="/stack">
+      <span class="px-watermark" aria-hidden="true">/stack</span>
+      <div class="wrap">
+        <h2 tabindex="-1">Uso no trabalho</h2>
+        <ul class="stack-main reveal">
+          <li>Node.js</li><li>TypeScript</li><li>MongoDB</li><li>Express</li><li>PHP</li><li>Laravel</li><li>MySQL</li><li>Docker</li><li>Git</li>
+        </ul>
+
+        <h3 class="stack-sub">Já usei</h3>
+        <div class="marquee">
+          <div class="marquee-track">
+            <ul>
+              <li>Next.js</li><li>Deno</li><li>Mongoose</li><li>Lumen</li><li>Vue.js</li><li>Angular</li><li>React</li><li>Ionic</li><li>jQuery</li><li>Python</li><li>Firebase</li><li>Linux</li><li>Vitest</li><li>Scrum</li><li>Kanban</li>
+            </ul>
+            <ul aria-hidden="true">
+              <li>Next.js</li><li>Deno</li><li>Mongoose</li><li>Lumen</li><li>Vue.js</li><li>Angular</li><li>React</li><li>Ionic</li><li>jQuery</li><li>Python</li><li>Firebase</li><li>Linux</li><li>Vitest</li><li>Scrum</li><li>Kanban</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="stack-sub">Certificados</h3>
+        <!-- [CONFIRMAR] URLs públicas das credenciais MongoDB/Docker para linkar -->
+        <ul class="certs reveal">
+          <li><span>MongoDB Node.js Developer Path</span><span class="mono">MongoDB · <time datetime="2026-05">05/2026</time></span></li>
+          <li><span>MongoDB Data Modeling Path</span><span class="mono">MongoDB · <time datetime="2026-04">04/2026</time></span></li>
+          <li><span>Introduction to MongoDB</span><span class="mono">MongoDB · <time datetime="2026-04">04/2026</time></span></li>
+          <li><span>Curso de Docker</span><span class="mono">Udemy · <time datetime="2026-02">02/2026</time></span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 5.7 Contato -->
+    <section class="section contato" id="contato" data-route="/contato">
+      <span class="px-watermark" aria-hidden="true">/contato</span>
+      <div class="wrap">
+        <p class="status-line">HTTP/1.1 200 OK</p>
+        <h2 tabindex="-1">Vamos conversar.</h2>
+        <!-- [CONFIRMAR] se está aberto a vagas (empregado na AGX) -->
+        <p class="contato-text">Se você tem uma vaga, um projeto ou só quer trocar uma ideia sobre back-end, me escreve.</p>
+        <div class="email-row">
+          <a class="email" href="mailto:romulogoncalves13@gmail.com">romulogoncalves13<wbr>@gmail.com</a>
+          <button class="copy" type="button" id="copiar" data-email="romulogoncalves13@gmail.com">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="8" y="8" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M16 8V4H4v12h4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            <span id="copiar-label">copiar</span>
+          </button>
+          <span class="visually-hidden" aria-live="polite" id="copiar-status"></span>
+        </div>
+        <div class="contato-links">
+          <a href="https://github.com/RomuuloGoncalves" target="_blank" rel="noopener">GitHub<span class="visually-hidden"> (abre em nova aba)</span></a>
+          <a href="https://www.linkedin.com/in/romuulogoncalves/" target="_blank" rel="noopener">LinkedIn<span class="visually-hidden"> (abre em nova aba)</span></a>
+          <!-- [CONFIRMAR] texto do status: "Disponível para oportunidades" vs "Aberto a conversar" -->
+          <span class="status"><span class="dot" aria-hidden="true"></span>Aberto a conversar</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-inner">
+      <span>© <span id="ano">2026</span> Rômulo Gonçalves</span>
+      <a href="https://github.com/RomuuloGoncalves/portifolio" target="_blank" rel="noopener">código deste site<span class="visually-hidden"> (abre em nova aba)</span></a>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

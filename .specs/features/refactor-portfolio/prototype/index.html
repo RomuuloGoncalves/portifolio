@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Rômulo Gonçalves · Desenvolvedor back-end</title>
+<meta name="description" content="Desenvolvedor back-end em Sorocaba. Node.js, TypeScript e MongoDB na AGX Software; antes, PHP e Laravel.">
+<script>
+  // tema antes do primeiro paint (TEMA-01/02)
+  document.documentElement.dataset.theme =
+    localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root, [data-theme="dark"] {
+  --bg: #0E0F11; --surface: #16181B; --line: #26292E;
+  --text: #E7E8EA; --muted: #9BA0A8; --accent: #FF6A3D; --on-accent: #0E0F11;
+  --watermark: #1B1D21; --grid: rgb(255 255 255 / .035);
+}
+[data-theme="light"] {
+  --bg: #F3F4F5; --surface: #FFFFFF; --line: #D9DCE0;
+  --text: #121417; --muted: #545A64; --accent: #B5370F; --on-accent: #F7F7F8;
+  --watermark: #E6E8EB; --grid: rgb(0 0 0 / .045);
+}
+:root {
+  --sans: 'Geist', system-ui, sans-serif;
+  --mono: 'Geist Mono', ui-monospace, monospace;
+  --fs-display: clamp(2.75rem, 6vw + 1rem, 5.5rem);
+  --fs-h2: clamp(2rem, 3vw + 1rem, 3.25rem);
+  --fs-h3: 1.375rem;
+  --gap: clamp(96px, 12vw, 160px);
+}
+* { box-sizing: border-box; margin: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body { background: var(--bg); color: var(--text); font: 400 1.0625rem/1.65 var(--sans); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: inherit; }
+img { display: block; max-width: 100%; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.mono { font-family: var(--mono); font-size: .875rem; }
+.muted { color: var(--muted); }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+@media (min-width: 1024px) { .wrap { padding: 0 48px; } }
+section { position: relative; padding-top: var(--gap); }
+h2 { font-size: var(--fs-h2); font-weight: 600; letter-spacing: -.025em; line-height: 1.1; margin-bottom: 48px; position: relative; }
+h3 { font-size: var(--fs-h3); font-weight: 500; line-height: 1.3; }
+
+/* ---------- nav: request line ---------- */
+.nav { position: fixed; inset: 0 0 auto; height: 64px; z-index: 10; background: var(--bg); border-bottom: 1px solid var(--line); }
+.nav .wrap { height: 100%; display: flex; align-items: center; gap: 24px; }
+.logo { font: 500 1rem var(--mono); text-decoration: none; }
+.logo span { color: var(--muted); }
+.reqline { flex: 1; font-family: var(--mono); font-size: .875rem; }
+.reqline b { font-weight: 400; color: var(--muted); margin-right: 1ch; }
+.nav-links { display: none; gap: 24px; font-size: .9375rem; }
+.nav-links a { text-decoration: none; color: var(--muted); }
+.nav-links a:hover, .nav-links a[aria-current] { color: var(--text); }
+@media (min-width: 1024px) { .nav-links { display: flex; } }
+.icon-btn { background: none; border: 1px solid var(--line); color: var(--text); width: 36px; height: 36px; cursor: pointer; font: 1rem var(--mono); }
+.progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--accent); transform-origin: 0 50%; transform: scaleX(0); }
+
+/* ---------- hero ---------- */
+.hero { min-height: 100dvh; padding-top: 64px; display: grid; align-items: center; position: relative; overflow: hidden; }
+.hero-grid { position: absolute; inset: -20% 0; background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 48px 48px; pointer-events: none; }
+.hero .wrap { display: grid; gap: 48px; position: relative; width: 100%; }
+@media (min-width: 900px) { .hero .wrap { grid-template-columns: 7fr 5fr; align-items: center; } }
+.hero h1 { font-size: var(--fs-display); font-weight: 600; letter-spacing: -.035em; line-height: 1.02; margin: 16px 0 24px; }
+.hero p.lead { max-width: 34ch; font-size: 1.1875rem; color: var(--muted); }
+.ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 22px; text-decoration: none; font-weight: 500; border: 1px solid var(--line); transition: background-color .2s, color .2s; }
+.btn:active { translate: 0 1px; }
+.btn.primary { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.btn:not(.primary):hover { border-color: var(--text); }
+.frame { overflow: hidden; aspect-ratio: 4/5; max-width: 420px; background: var(--surface); }
+.frame img { width: 100%; height: 115%; object-fit: cover; margin-top: -7.5%; }
+@media (max-width: 899px) { .frame { aspect-ratio: 3/4; width: 60%; } }
+.status { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; }
+.status::before { content: ''; width: 8px; height: 8px; background: var(--accent); }
+
+/* ---------- marca d'água de rota ---------- */
+.wm { position: absolute; top: calc(var(--gap) - .35em); right: -.05em; font: 500 clamp(6rem, 18vw, 16rem)/1 var(--mono); color: var(--watermark); pointer-events: none; user-select: none; white-space: nowrap; z-index: -1; }
+main { position: relative; z-index: 0; }
+
+/* ---------- sobre ---------- */
+.manifesto { font-size: clamp(1.5rem, 2vw + 1rem, 2.25rem); line-height: 1.3; letter-spacing: -.015em; max-width: 26ch; margin-bottom: 56px; }
+.sobre-cols { display: grid; gap: 48px; }
+@media (min-width: 900px) { .sobre-cols { grid-template-columns: 7fr 5fr; } }
+.sobre-cols p { max-width: 65ch; }
+.sobre-cols p + p { margin-top: 1em; }
+dl.ficha { border-top: 1px solid var(--line); padding-top: 20px; display: grid; grid-template-columns: max-content 1fr; gap: 10px 24px; font: .9375rem/1.5 var(--mono); align-self: start; }
+dl.ficha dt { color: var(--muted); }
+
+/* ---------- trace ---------- */
+.trace { --total: 70; }
+.lane-label { font: .8125rem var(--mono); color: var(--muted); margin: 32px 0 12px; }
+.axis { position: relative; height: 24px; border-bottom: 1px solid var(--line); font: .75rem var(--mono); color: var(--muted); }
+.axis span { position: absolute; transform: translateX(-50%); }
+ol.spans { list-style: none; padding: 0; display: grid; gap: 10px; }
+.span-btn { position: relative; display: block; width: 100%; height: 44px; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; color: var(--text); font: inherit; }
+.span-bar { position: absolute; top: 8px; height: 28px; left: calc(var(--start) / var(--total) * 100%); width: calc(var(--len) / var(--total) * 100%); background: var(--line); border: 1px solid var(--muted); transform-origin: 0 50%; }
+.span-btn[data-open] .span-bar { border-right-style: dashed; }
+.span-btn[aria-pressed="true"] .span-bar { background: var(--accent); border-color: var(--accent); }
+.span-txt { position: absolute; top: 10px; left: calc(var(--start) / var(--total) * 100% + 10px); font-size: .875rem; white-space: nowrap; font-weight: 500; }
+.span-btn[aria-pressed="true"] .span-txt { color: var(--on-accent); }
+.span-txt.out { left: auto; right: calc(100% - var(--start) / var(--total) * 100% + 10px); color: var(--text) !important; }
+.detail { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line); min-height: 160px; display: grid; gap: 8px; max-width: 70ch; }
+@media (max-width: 767px) {
+  .axis { display: none; }
+  .span-btn { height: auto; padding-bottom: 8px; }
+  .span-bar { position: relative; top: auto; left: 0; display: block; height: 6px; margin-top: 6px; width: calc(var(--len) / var(--total) * 100%); }
+  .span-txt, .span-txt.out { position: static; white-space: normal; color: var(--text) !important; }
+}
+
+/* ---------- projetos ---------- */
+.proj { display: grid; gap: 48px; }
+@media (min-width: 900px) { .proj { grid-template-columns: 7fr 5fr; } }
+.proj-list { list-style: none; padding: 0; border-top: 1px solid var(--line); }
+.proj-list a { display: grid; grid-template-columns: 1fr auto; gap: 4px 24px; padding: 24px 0; text-decoration: none; }
+.proj-list a:hover h3, .proj-list a:focus-visible h3 { color: var(--accent); }
+.proj-list p { grid-column: 1; color: var(--muted); max-width: 52ch; }
+.proj-list .stack { grid-column: 1; }
+.proj-list .yr { grid-row: 1; grid-column: 2; }
+.preview { position: sticky; top: 96px; align-self: start; display: none; }
+@media (min-width: 900px) { .preview { display: block; } }
+.preview .frame { aspect-ratio: 16/10; max-width: none; box-shadow: 0 24px 48px -24px rgb(0 0 0 / .5); }
+.preview .frame img { height: 115%; }
+.preview .card { aspect-ratio: 16/10; background: var(--surface); border: 1px solid var(--line); padding: 28px; display: flex; flex-direction: column; justify-content: space-between; }
+.preview .card b { font-weight: 500; font-size: 1.5rem; }
+.preview-links { display: flex; gap: 16px; margin-top: 16px; }
+details.more { margin-top: 48px; border-top: 1px solid var(--line); padding-top: 24px; }
+details.more summary { cursor: pointer; font-weight: 500; }
+.more ul { list-style: none; padding: 0; display: grid; gap: 20px 48px; margin-top: 24px; }
+@media (min-width: 900px) { .more ul { grid-template-columns: 1fr 1fr; } }
+.more li span { display: block; }
+
+/* ---------- certificados + stack ---------- */
+.certs { list-style: none; padding: 0; border-top: 1px solid var(--line); }
+.certs li { display: grid; grid-template-columns: 1fr auto; gap: 2px 24px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.certs li > span:first-child { grid-area: 1 / 1; }
+.certs li time { grid-area: 1 / 2; }
+.certs li .mono:last-child { grid-area: 2 / 1; }
+.stack-work { font-size: var(--fs-h2); font-weight: 500; letter-spacing: -.02em; line-height: 1.25; max-width: 22ch; }
+.stack-work span { white-space: nowrap; }
+.stack-work i { font-style: normal; color: var(--muted); }
+.marquee { overflow: hidden; margin-top: 32px; border-block: 1px solid var(--line); padding: 14px 0; }
+.marquee-track { display: flex; gap: 48px; width: max-content; font: .9375rem var(--mono); color: var(--muted); }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+
+/* ---------- contato ---------- */
+.contato { padding-bottom: 96px; }
+.email { display: inline-block; font-size: clamp(1.75rem, 5vw, 4.5rem); font-weight: 600; letter-spacing: -.03em; line-height: 1.1; word-break: break-word; text-decoration: none; margin: 24px 0; }
+.email:hover { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: .12em; }
+.contact-row { display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; }
+footer { border-top: 1px solid var(--line); padding: 24px 0; }
+footer .wrap { display: flex; justify-content: space-between; font-size: .875rem; color: var(--muted); }
+
+/* ---------- motion: só com permissão e suporte (VIS-02/03/04) ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .marquee-track { animation: marquee 40s linear infinite; }
+  @supports (animation-timeline: view()) {
+    .px { animation: px-y linear both; animation-timeline: view(); animation-range: cover; }
+    .reveal { animation: reveal linear both; animation-timeline: view(); animation-range: entry 0% entry 60%; }
+    .span-bar { animation: grow-x linear both; animation-timeline: view(); animation-range: entry 20% cover 40%; }
+    .progress { animation: grow-x linear both; animation-timeline: scroll(root); }
+  }
+}
+@keyframes px-y { from { translate: 0 var(--from, 15vh); } to { translate: 0 var(--to, -15vh); } }
+@keyframes reveal { from { opacity: 0; translate: 0 16px; } to { opacity: 1; translate: 0 0; } }
+@keyframes grow-x { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@media (max-width: 639px) { .px { --from: 7vh; --to: -7vh; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .progress { display: none; }
+  .marquee { overflow-x: auto; }
+  .marquee-track [aria-hidden] { display: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#topo"><span>&lt;</span>RG<span> /&gt;</span></a>
+    <div class="reqline" aria-live="off"><b>GET</b><span id="rota">/</span></div>
+    <nav class="nav-links" aria-label="Seções">
+      <a href="#trajetoria">Trajetória</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#stack">Stack</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <button class="icon-btn" id="tema" type="button" aria-label="Alternar tema">◐</button>
+  </div>
+  <div class="progress" aria-hidden="true"></div>
+</header>
+
+<main>
+  <section class="hero" id="topo" data-rota="/">
+    <div class="hero-grid px" style="--from:-4vh;--to:4vh" aria-hidden="true"></div>
+    <div class="wrap">
+      <div>
+        <p class="mono muted">Rômulo Gonçalves · Sorocaba / SP</p>
+        <h1>Desenvolvedor back-end.</h1>
+        <p class="lead">Escrevo APIs em Node.js, TypeScript e MongoDB na AGX Software. Antes, passei dois anos em PHP e Laravel mantendo um ERP escolar.</p>
+        <div class="ctas">
+          <a class="btn primary" href="#projetos">Ver projetos</a>
+          <a class="btn" href="../../../../public/curriculo.pdf" download>Baixar currículo</a>
+        </div>
+        <p class="status mono muted">Aberto a conversar</p>
+      </div>
+      <div class="frame">
+        <img class="px" style="--from:-6%;--to:6%" src="../../../../src/assets/img/foto-perfil.jpeg" alt="Foto de Rômulo Gonçalves" width="420" height="525" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre" data-rota="/sobre">
+    <div class="wm px" aria-hidden="true">/sobre</div>
+    <div class="wrap">
+      <h2>Sobre</h2>
+      <p class="manifesto reveal">Gosto da parte do sistema que ninguém vê funcionando, só quando ela para de funcionar.</p>
+      <div class="sobre-cols">
+        <div class="reveal">
+          <p>Comecei no técnico em Desenvolvimento de Sistemas da Etec de Tatuí. Em 2024 entrei como estagiário na Education1, onde aprendi o que é manter um sistema que escola usa todo dia: ticket chegando, causa para achar, correção sem quebrar o resto.</p>
+          <p>Hoje faço Engenharia da Computação na Uniso e trabalho com back-end na AGX. Nos projetos próprios gosto de deixar a parte chata pronta: testes, documentação da API e um jeito simples de rodar tudo.</p>
+        </div>
+        <dl class="ficha reveal">
+          <dt>cargo</dt><dd>Desenvolvedor back-end, AGX Software</dd>
+          <dt>stack</dt><dd>Node.js · TypeScript · MongoDB</dd>
+          <dt>antes</dt><dd>PHP · Laravel · MySQL</dd>
+          <dt>formação</dt><dd>Eng. da Computação, Uniso (em curso)</dd>
+          <dt>base</dt><dd>Sorocaba / SP</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="trajetoria" data-rota="/trajetoria">
+    <div class="wm px" aria-hidden="true">/trajetoria</div>
+    <div class="wrap trace">
+      <h2>Trajetória</h2>
+      <div class="axis" id="axis" aria-hidden="true"></div>
+      <p class="lane-label">trabalho</p>
+      <ol class="spans" id="lane-trabalho"></ol>
+      <p class="lane-label">formação</p>
+      <ol class="spans" id="lane-formacao"></ol>
+      <div class="detail" id="detail" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section id="projetos" data-rota="/projetos">
+    <div class="wm px" aria-hidden="true">/projetos</div>
+    <div class="wrap">
+      <h2>Projetos</h2>
+      <div class="proj">
+        <ul class="proj-list" id="proj-list"></ul>
+        <aside class="preview" id="preview" aria-hidden="true"></aside>
+      </div>
+      <details class="more">
+        <summary>Mais projetos</summary>
+        <ul id="more-list"></ul>
+      </details>
+    </div>
+  </section>
+
+  <section id="stack" data-rota="/stack">
+    <div class="wm px" aria-hidden="true">/stack</div>
+    <div class="wrap">
+      <h2>Certificados</h2>
+      <ul class="certs reveal" id="certs"></ul>
+      <p class="muted" style="margin-top:16px">E 6 palestras das Semanas das Engenharias da Uniso (2024 e 2026).</p>
+
+      <h2 style="margin-top:var(--gap)">Stack</h2>
+      <p class="mono muted" style="margin-bottom:16px">uso no trabalho</p>
+      <p class="stack-work reveal" id="stack-work"></p>
+      <p class="mono muted" style="margin-top:48px">já usei em projeto</p>
+      <div class="marquee"><div class="marquee-track" id="marquee"></div></div>
+    </div>
+  </section>
+
+  <section class="contato" id="contato" data-rota="/contato">
+    <div class="wm px" aria-hidden="true">/contato</div>
+    <div class="wrap">
+      <h2 style="margin-bottom:8px">Contato</h2>
+      <p class="mono muted">HTTP/1.1 200 OK</p>
+      <a class="email" href="mailto:romulogoncalves13@gmail.com">romulogoncalves13@gmail.com</a>
+      <p style="max-width:52ch;margin-bottom:32px">Se você tem uma vaga, um projeto ou quer trocar ideia sobre back-end, me escreve.</p>
+      <div class="contact-row">
+        <button class="btn" id="copiar" type="button">Copiar e-mail</button>
+        <a href="https://github.com/RomuuloGoncalves" target="_blank" rel="noopener">GitHub <span class="muted">↗</span></a>
+        <a href="https://www.linkedin.com/in/romuulogoncalves/" target="_blank" rel="noopener">LinkedIn <span class="muted">↗</span></a>
+        <span class="muted mono" id="copiado" aria-live="polite"></span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Rômulo Gonçalves</span><a href="https://github.com/RomuuloGoncalves/portifolio" target="_blank" rel="noopener">código deste site</a></div>
+</footer>
+
+<script>
+// ---------- dados (no site final: src/data/portfolio.ts) ----------
+const IMG = '../../../../src/assets/img/';
+const GH = 'https://github.com/RomuuloGoncalves/';
+const spans = [
+  { lane: 'trabalho', titulo: 'Desenvolvedor back-end', org: 'AGX Software', ini: '2026-04', fim: null, tags: 'Node.js · TypeScript · MongoDB · Git',
+    texto: 'Desenvolvo e mantenho serviços back-end em Node.js e TypeScript com MongoDB. Analiso tickets, corrijo bugs e crio funcionalidades novas.' },
+  { lane: 'trabalho', titulo: 'Desenvolvedor full stack', org: 'Education1', ini: '2025-11', fim: '2026-04', tags: 'PHP · Laravel · JavaScript · MySQL · SQL',
+    texto: 'Pegava os tickets do suporte, achava a causa e corrigia no ERP de gestão escolar, principalmente nos módulos de matrícula e financeiro. Também escrevi queries SQL e telas novas.' },
+  { lane: 'trabalho', titulo: 'Estagiário', org: 'Education1', ini: '2024-10', fim: '2025-11', tags: 'PHP · Laravel · MySQL',
+    texto: 'Analisava tickets, corrigia bugs e implantava melhorias no mesmo ERP.' },
+  { lane: 'formacao', titulo: 'Engenharia da Computação', org: 'Uniso', ini: '2024-02', fim: null, tags: 'Aluno Top da Uniso 5 vezes',
+    texto: 'Graduação em andamento.' },
+  { lane: 'formacao', titulo: 'Técnico em Desenv. de Sistemas', org: 'Etec Sales Gomes', ini: '2021-02', fim: '2023-12', tags: 'Integrado ao ensino médio',
+    texto: 'Lógica, estrutura de dados, banco de dados e web. Foi onde fiz o app de delivery do TCC.' },
+];
+const projetos = [
+  { nome: 'Liftech', ano: 2026, stack: 'TypeScript · Express · MongoDB · React · Vitest', repo: GH + 'Liftech', demo: 'https://liftech-pi.vercel.app/',
+    desc: 'Monorepo com API Express e MongoDB organizada por módulo, validação por feature e testes com Vitest. Front em React com 7 idiomas.' },
+  { nome: 'API Biblioteca', ano: 2026, stack: 'Deno · Express · Mongoose · JWT · Swagger', repo: GH + 'projetoAGX',
+    desc: 'Login JWT, permissão por perfil e empréstimo que usa transação no MongoDB para o estoque não ficar negativo. Tem Swagger e testes de integração.' },
+  { nome: 'Moni', ano: 2026, stack: 'Next.js · TypeScript · MongoDB · NextAuth', repo: GH + 'Moni', demo: 'https://ro-moni.vercel.app',
+    desc: 'Controle de finanças pessoais: contas, orçamentos, transações recorrentes e metas. Separado em repositories e services, com testes unitários e de integração.' },
+  { nome: 'SoloTrack', ano: 2026, stack: 'Laravel · React · C++ · Docker · OpenAPI', repo: GH + 'soloTrack', demo: 'https://solotrack-beta.vercel.app',
+    desc: 'Projeto de equipe: sensores de solo mandam leituras para uma API em Laravel, com front em React e um agente de IA via MCP.' },
+  { nome: 'ONGFlow', ano: 2025, stack: 'Laravel 12 · React · GitHub Actions', repo: GH + 'ONGFlow', demo: 'https://romuulogoncalves.github.io/ONGFlow/', img: 'ongflow.png',
+    desc: 'Projeto de equipe que liga voluntários a ONGs. API em Laravel, front em React e deploy automático pelo GitHub Actions.' },
+];
+const outros = [
+  { nome: "Laure's Sucrier", ano: 2026, stack: 'Vite · Three.js · GSAP', link: 'https://lauressucrier.vercel.app', desc: 'Freela: landing de uma confeitaria com pedido direto pelo WhatsApp.' },
+  { nome: 'Mini interpretador matemático', ano: 2025, stack: 'Python · PLY', link: GH + 'calculadora_compiladores', desc: 'Análise léxica e sintática, tabela de símbolos e checagem de overflow.' },
+  { nome: 'ATOMOX', ano: 2024, stack: 'ESP32 · C++ · JavaScript', link: GH + 'Projeto-Integrador', desc: 'Monitor de qualidade do ar com ESP32 e tela web em tempo real.' },
+  { nome: 'GeoLab', ano: 2024, stack: 'Angular · AR.js · Three.js', link: GH + 'GeoLab', desc: 'App educacional com objetos 3D em realidade aumentada.' },
+  { nome: 'App de delivery (TCC)', ano: 2023, stack: 'Angular · Ionic · PHP', link: GH + 'TCC-Delivery', desc: 'Área do cliente e painel da loja.' },
+];
+const certs = [
+  ['MongoDB Node.js Developer Path', 'MongoDB', '2026-05', 'MDBz8yqgb1ahv'],
+  ['MongoDB Data Modeling Path', 'MongoDB', '2026-04', 'MDBjqyw6ftv4n'],
+  ['Introduction to MongoDB', 'MongoDB', '2026-04', 'MDBst43cbdxts'],
+  ['Curso de Docker', 'Udemy', '2026-02', null],
+];
+const stackTrabalho = ['Node.js', 'TypeScript', 'MongoDB', 'Express', 'PHP', 'Laravel', 'MySQL', 'Docker', 'Git'];
+const stackJaUsei = ['Deno', 'Next.js', 'React', 'Vue', 'Angular', 'Ionic', 'Python', 'Linux', 'Vitest'];
+
+// ---------- render ----------
+const $ = (s) => document.querySelector(s);
+const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const meses = (ym) => { const [y, m] = ym.split('-').map(Number); return y * 12 + m - 1; };
+const hoje = new Date();
+const agora = hoje.getFullYear() * 12 + hoje.getMonth();
+const ORIGEM = meses('2021-02');
+const total = agora - ORIGEM + 2;
+const fmt = (ym) => ym ? ym.split('-').reverse().join('/') : 'hoje';
+const nomeMes = (ym) => ym ? new Date(ym + '-15').toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' }) : 'hoje';
+
+$('.trace').style.setProperty('--total', total);
+for (let y = 2022; y <= hoje.getFullYear(); y++) {
+  $('#axis').insertAdjacentHTML('beforeend', `<span style="left:${(meses(y + '-01') - ORIGEM) / total * 100}%">${y}</span>`);
+}
+spans.forEach((s, i) => {
+  const start = meses(s.ini) - ORIGEM;
+  const len = (s.fim ? meses(s.fim) : agora + 1) - meses(s.ini);
+  const fora = start / total > 0.55; // rótulo à esquerda da barra quando ela está no fim do eixo
+  $(s.lane === 'trabalho' ? '#lane-trabalho' : '#lane-formacao').insertAdjacentHTML('beforeend',
+    `<li><button class="span-btn" type="button" data-i="${i}" ${s.fim ? '' : 'data-open'} aria-pressed="false" tabindex="-1"
+      style="--start:${start};--len:${len}" aria-label="${esc(s.titulo)}, ${esc(s.org)}, ${nomeMes(s.ini)} a ${nomeMes(s.fim)}">
+      <span class="span-bar"></span>
+      <span class="span-txt ${fora ? 'out' : ''}">${esc(s.titulo)} · ${esc(s.org)}</span>
+    </button></li>`);
+});
+const botoes = [...document.querySelectorAll('.span-btn')];
+function selecionar(i, foco) {
+  botoes.forEach((b) => { const on = +b.dataset.i === i; b.setAttribute('aria-pressed', on); b.tabIndex = on ? 0 : -1; if (on && foco) b.focus(); });
+  const s = spans[i];
+  $('#detail').innerHTML = `<p class="mono muted">${fmt(s.ini)} → ${fmt(s.fim)}</p><h3>${esc(s.titulo)}, ${esc(s.org)}</h3><p>${esc(s.texto)}</p><p class="mono muted">${esc(s.tags)}</p>`;
+}
+botoes.forEach((b) => {
+  b.addEventListener('click', () => selecionar(+b.dataset.i));
+  b.addEventListener('keydown', (e) => {
+    const pos = botoes.indexOf(b);
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { e.preventDefault(); selecionar(+botoes[(pos + 1) % botoes.length].dataset.i, true); }
+    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { e.preventDefault(); selecionar(+botoes[(pos - 1 + botoes.length) % botoes.length].dataset.i, true); }
+  });
+});
+selecionar(0);
+
+const preview = (p) => p.img
+  ? `<div class="frame"><img class="px" style="--from:-5%;--to:5%" src="${IMG + p.img}" alt="" width="800" height="500"></div>`
+  : `<div class="card"><span class="mono muted">${p.ano}</span><b>${esc(p.nome)}</b><span class="mono muted">${esc(p.stack)}</span></div>`;
+projetos.forEach((p, i) => {
+  $('#proj-list').insertAdjacentHTML('beforeend',
+    `<li><a href="${p.demo || p.repo}" target="_blank" rel="noopener" data-i="${i}" aria-label="${esc(p.nome)} (abre em nova aba)">
+      <h3>${esc(p.nome)} <span class="muted">↗</span></h3><span class="yr mono muted">${p.ano}</span>
+      <p>${esc(p.desc)}</p><span class="stack mono muted">${esc(p.stack)}</span></a></li>`);
+});
+const mostrar = (i) => {
+  const p = projetos[i];
+  $('#preview').innerHTML = preview(p) + `<div class="preview-links mono">${p.repo ? 'repo' : ''}${p.demo ? ' · demo no ar' : ''}</div>`;
+};
+document.querySelectorAll('#proj-list a').forEach((a) => ['mouseenter', 'focus'].forEach((ev) => a.addEventListener(ev, () => mostrar(+a.dataset.i))));
+mostrar(0);
+
+outros.forEach((p) => $('#more-list').insertAdjacentHTML('beforeend',
+  `<li><a href="${p.link}" target="_blank" rel="noopener">${esc(p.nome)} <span class="muted">↗</span></a>
+   <span class="muted">${esc(p.desc)}</span><span class="mono muted">${p.ano} · ${esc(p.stack)}</span></li>`));
+
+if (!certs.length) $('#certs').parentElement.querySelector('h2').hidden = true; // CERT vazio: sem título órfão
+certs.forEach(([nome, emissor, data, id]) => $('#certs').insertAdjacentHTML('beforeend',
+  `<li><span>${esc(nome)}</span><time class="mono muted" datetime="${data}">${fmt(data)}</time>
+   <span class="mono muted">${esc(emissor)}${id ? ' · ID ' + id : ''}</span></li>`));
+
+$('#stack-work').innerHTML = stackTrabalho.map((t) => `<span>${t}</span>`).join(' <i>·</i> ');
+$('#marquee').innerHTML = [...stackJaUsei, ...stackJaUsei].map((t, i) => `<span ${i >= stackJaUsei.length ? 'aria-hidden="true"' : ''}>${t}</span>`).join('');
+
+// ---------- tema ----------
+$('#tema').addEventListener('click', () => {
+  const t = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = t;
+  localStorage.setItem('theme', t);
+});
+
+// ---------- copiar e-mail ----------
+$('#copiar').addEventListener('click', async () => {
+  try { await navigator.clipboard.writeText('romulogoncalves13@gmail.com'); $('#copiado').textContent = 'copiado'; }
+  catch { getSelection().selectAllChildren($('.email')); $('#copiado').textContent = 'selecionado, use Ctrl+C'; }
+});
+
+// ---------- request line: rota da seção ativa ----------
+const io = new IntersectionObserver((es) => es.forEach((e) => {
+  if (!e.isIntersecting) return;
+  $('#rota').textContent = e.target.dataset.rota;
+  document.querySelectorAll('.nav-links a').forEach((a) => a.toggleAttribute('aria-current', a.hash === '#' + e.target.id));
+}), { rootMargin: '-40% 0px -55% 0px' });
+document.querySelectorAll('section[data-rota]').forEach((s) => io.observe(s));
+
+// ---------- fallback de parallax sem animation-timeline (VIS-04) ----------
+const reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!reduz && !CSS.supports('animation-timeline: view()')) {
+  const els = [...document.querySelectorAll('.px')];
+  const bar = $('.progress');
+  const num = (el, v, d) => parseFloat(getComputedStyle(el).getPropertyValue(v)) || d;
+  let pend = false;
+  const tick = () => {
+    pend = false;
+    const vh = innerHeight;
+    els.forEach((el) => {
+      const r = (el.closest('.frame') || el.parentElement).getBoundingClientRect();
+      const t = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height))); // 0 entrando, 1 saindo
+      const de = num(el, '--from', 15), ate = num(el, '--to', -15);
+      const unidade = getComputedStyle(el).getPropertyValue('--from').trim().endsWith('%') ? '%' : 'vh';
+      el.style.translate = `0 ${de + (ate - de) * t}${unidade}`;
+    });
+    bar.style.transform = `scaleX(${scrollY / (document.documentElement.scrollHeight - vh)})`;
+  };
+  addEventListener('scroll', () => { if (!pend) { pend = true; requestAnimationFrame(tick); } }, { passive: true });
+  tick();
+}
+</script>
+</body>
+</html>
