@@ -35,3 +35,6 @@ npm-debug.log*
 /.claude/skills
 /.cursor/skills
 /skills-lock.json
+
+# Saída dos testes de responsividade
+_responsive/

@@ -1,22 +1,11 @@
-import { createRouter, createWebHistory } from '@ionic/vue-router';
-import { RouteRecordRaw } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '../views/HomePage.vue'
 
-const routes: Array<RouteRecordRaw> = [
-  {
-    path: '/',
-    redirect: '/home'
-  },
-  {
-    path: '/home',
-    name: 'Home',
-    component: HomePage
-  }
-]
-
-const router = createRouter({
+// Página única: as seções são âncoras nativas (#sobre, #projetos...), não rotas
+export default createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes
+  routes: [
+    { path: '/', component: HomePage },
+    { path: '/:pathMatch(.*)*', redirect: '/' },
+  ],
 })
-
-export default router

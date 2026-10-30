@@ -278,7 +278,7 @@ copyBtn.addEventListener('click', async () => {
 document.querySelector('.year').textContent = new Date().getFullYear();
 
 // ---------- Fallback sem CSS scroll-driven (Safari / Firefox) ----------
-// ponytail: no fallback só há barra de progresso e reveal; o parallax fica estático
+// ponytail: no fallback só há reveal; o parallax fica estático
 if (!CSS.supports('animation-timeline: scroll()')) {
   root.classList.add('js-fallback');
   const revealObserver = new IntersectionObserver((entries) => {
@@ -289,15 +289,4 @@ if (!CSS.supports('animation-timeline: scroll()')) {
     });
   }, { threshold: 0.15 });
   document.querySelectorAll('.reveal-on-scroll').forEach((el) => revealObserver.observe(el));
-
-  let ticking = false;
-  const update = () => {
-    ticking = false;
-    const max = root.scrollHeight - innerHeight;
-    root.style.setProperty('--progress', max > 0 ? scrollY / max : 0);
-  };
-  addEventListener('scroll', () => {
-    if (!ticking) { ticking = true; requestAnimationFrame(update); }
-  }, { passive: true });
-  update();
 }

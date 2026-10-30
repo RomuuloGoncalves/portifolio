@@ -1,7 +1,0 @@
-{
-  "name": "portifolio",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "vue-vite"
-}

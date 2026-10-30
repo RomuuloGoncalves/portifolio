@@ -78,7 +78,6 @@
         </button>
       </div>
     </div>
-    <div class="navbar-scroll-progress" aria-hidden="true"></div>
   </header>
 
   <main id="conteudo">
@@ -97,15 +96,31 @@
           </div>
         </div>
 
-        <figure class="photo">
-          <!-- ponytail: JPEG original 3000x4000; gerar AVIF/WebP com srcset na versão final -->
-          <img src="foto-perfil.jpg" alt="Foto de Rômulo Gonçalves" width="1200" height="1600" fetchpriority="high">
-        </figure>
+        <div class="hero__card">
+          <figure class="photo">
+            <div class="photo__frame">
+              <!-- ponytail: JPEG original 3000x4000; gerar AVIF/WebP com srcset na versão final -->
+              <img src="foto-perfil.jpg" alt="Foto de Rômulo Gonçalves" width="1200" height="1600" fetchpriority="high">
+            </div>
+            <!-- [CONFIRMAR] texto da legenda -->
+            <figcaption class="photo__caption">foto-perfil.avif · 1200×1600</figcaption>
+          </figure>
+          <div class="sysinfo">
+            <p id="sysinfo-t" class="sysinfo__head">SYSTEM_INFO</p>
+            <dl aria-labelledby="sysinfo-t">
+              <div><dt>DEV</dt><dd>Rômulo Gonçalves</dd></div>
+              <div><dt>PRIMARY_STACK</dt><dd>Node.js / TS / MongoDB</dd></div>
+              <div><dt>SECONDARY</dt><dd>PHP / Laravel / MySQL</dd></div>
+              <div><dt>LOCATION</dt><dd>Sorocaba, SP · Brasil</dd></div>
+              <!-- STATUS só com D-12 aprovado -->
+            </dl>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- SOBRE -->
-    <section class="section" id="sobre" data-route="/sobre" aria-labelledby="sobre-t">
+    <section class="section section--tight" id="sobre" data-route="/sobre" aria-labelledby="sobre-t">
       <span class="section-watermark" aria-hidden="true">01_SOBRE</span>
       <div class="container">
         <h2 id="sobre-t" class="section__title">Sobre</h2>
@@ -117,11 +132,11 @@
           </div>
           <ul class="principles">
             <li>
-              <h3>Integridade e modelagem</h3>
+              <h3>Transação quando não pode ficar pela metade</h3>
               <p>Coleções modeladas para a consulta, índices onde a query pede e transações quando a operação não pode ficar pela metade.</p>
             </li>
             <li>
-              <h3>Contratos estritos</h3>
+              <h3>OpenAPI em todo endpoint</h3>
               <p>APIs REST tipadas em TypeScript, entrada validada antes de chegar ao domínio e endpoints documentados em OpenAPI/Swagger.</p>
             </li>
             <li>
@@ -146,7 +161,6 @@
               <h3>Desenvolvedor back-end <span class="at">AGX Software, Sorocaba/SP, presencial</span></h3>
               <!-- [CONFIRMAR] se desenha as APIs do zero ou implementa sobre desenho existente -->
               <p>Desenvolvo e mantenho serviços back-end. Analiso e corrijo tickets, crio funcionalidades novas e projeto APIs REST em Node.js e TypeScript, com MongoDB.</p>
-              <ul class="tags"><li>Node.js</li><li>TypeScript</li><li>MongoDB</li><li>API REST</li><li>Git</li></ul>
             </div>
           </li>
           <li class="entry reveal-on-scroll">
@@ -202,7 +216,7 @@
               <div class="code">
                 <div class="code__bar"><span class="code__file"></span></div>
                 <!-- [CONFIRMAR] trechos ilustrativos, conferir contra o código real dos repositórios -->
-                <pre><code></code></pre>
+                <pre><code><!-- preenchido por main.js --></code></pre>
               </div>
               <div class="pipe__notes">
                 <h3 class="pipe__node-title"></h3>
@@ -216,22 +230,17 @@
     </section>
 
     <!-- PROJETOS -->
-    <section class="section" id="projetos" data-route="/projetos" aria-labelledby="proj-t">
+    <section class="section section--wide" id="projetos" data-route="/projetos" aria-labelledby="proj-t">
       <span class="section-watermark" aria-hidden="true">04_PROJETOS</span>
       <div class="container">
         <h2 id="proj-t" class="section__title">Projetos em destaque</h2>
-        <p class="section__sub">Repositórios públicos com back-end de verdade.</p>
+        <p class="section__sub">Cinco projetos com API, banco e testes; links para o código.</p>
 
         <div class="projects">
           <article class="project project--lead reveal-on-scroll">
-            <!-- TROCAR POR PRINT REAL -->
-            <figure class="shot shot--diagram" role="img" aria-label="Diagrama: front React chama a API Express, que delega para módulos de domínio com regras, casos de uso e repositório sobre MongoDB">
-              <ol class="flow">
-                <li>React<small>7 idiomas</small></li>
-                <li>API Express<small>Node.js 24</small></li>
-                <li class="flow__main">módulo de domínio<small>regras, caso de uso, repositório</small></li>
-                <li>MongoDB<small>Mongoose</small></li>
-              </ol>
+            <!-- print de screenshots/Liftech (front com API mockada, sem banco); [CONFIRMAR] aprovação do print (SHOT-03) -->
+            <figure class="shot shot--img">
+              <img src="../screenshots/Liftech/visao-geral-desktop.png" alt="Tela Visão Geral do Liftech com a lista de empilhadeiras e o status de cada uma" width="1440" height="900" loading="lazy">
             </figure>
             <div class="project__body">
               <h3>Liftech</h3>
@@ -250,12 +259,13 @@
           <article class="project reveal-on-scroll">
             <!-- TROCAR POR PRINT REAL -->
             <!-- [CONFIRMAR] rota e corpo ilustrativos, conferir contra o Swagger do projeto -->
-            <figure class="shot shot--term" role="img" aria-label="Exemplo de requisição: POST /emprestimos com token Bearer, resposta 201 Created">
+            <figure class="shot shot--term" role="img" aria-label="Exemplo de requisição: POST /emprestimos com token Bearer, resposta 201 Created com o id do empréstimo e o estoque restante">
 <pre><span class="t-k">POST</span> /emprestimos
 Authorization: Bearer &lt;token&gt;
-{ "livroId": "…" }
+{ <span class="t-p">"livroId"</span>: <span class="t-s">"…"</span> }
 
-<span class="t-m">HTTP/1.1</span> <span class="t-k">201</span> Created</pre>
+<span class="t-m">HTTP/1.1</span> <span class="t-k">201</span> Created
+{ <span class="t-p">"id"</span>: <span class="t-s">"…"</span>, <span class="t-p">"estoque"</span>: <span class="t-n">3</span> }</pre>
             </figure>
             <div class="project__body">
               <h3>projetoAGX</h3>
@@ -271,15 +281,7 @@ Authorization: Bearer &lt;token&gt;
           </article>
 
           <article class="project reveal-on-scroll">
-            <!-- TROCAR POR PRINT REAL -->
-            <figure class="shot shot--diagram" role="img" aria-label="Diagrama: app Next.js com NextAuth, camadas services, repositories e models sobre MongoDB">
-              <ol class="flow flow--stack">
-                <li>Next.js<small>NextAuth</small></li>
-                <li>services</li>
-                <li>repositories</li>
-                <li>MongoDB<small>models</small></li>
-              </ol>
-            </figure>
+            <!-- TROCAR POR PRINT REAL (screenshots/Moni: precisa de banco, print vem do usuário) -->
             <div class="project__body">
               <h3>Moni</h3>
               <p class="project__sub">Gestão financeira pessoal em Next.js, em camadas.</p>
@@ -294,14 +296,9 @@ Authorization: Bearer &lt;token&gt;
           </article>
 
           <article class="project reveal-on-scroll">
-            <!-- TROCAR POR PRINT REAL -->
-            <figure class="shot shot--diagram" role="img" aria-label="Diagrama: sensores com firmware C++ enviam leituras para a API Laravel, que grava em banco relacional e serve o front TypeScript">
-              <ol class="flow">
-                <li>Sensores<small>firmware C++</small></li>
-                <li class="flow__main">API Laravel<small>OpenAPI</small></li>
-                <li>Banco relacional</li>
-                <li>Front TypeScript</li>
-              </ol>
+            <!-- print de screenshots/soloTrack (front com API mockada, sem banco); [CONFIRMAR] aprovação do print (SHOT-03) -->
+            <figure class="shot shot--img">
+              <img src="../screenshots/soloTrack/visao-geral-1440.png" alt="Dashboard do soloTrack com economia, score de fertilidade e gráfico de nutrientes" width="1440" height="900" loading="lazy">
             </figure>
             <div class="project__body">
               <h3>soloTrack</h3>
@@ -317,7 +314,7 @@ Authorization: Bearer &lt;token&gt;
 
           <article class="project reveal-on-scroll">
             <figure class="shot shot--img">
-              <img src="../../../../src/assets/img/ongflow.png" alt="Tela inicial do ONGFlow" width="1920" height="961" loading="lazy">
+              <img src="../screenshots/ONGFlow/dashboard-desktop.png" alt="Dashboard do ONGFlow com projetos ativos, voluntários e candidaturas pendentes" width="1440" height="900" loading="lazy">
             </figure>
             <div class="project__body">
               <h3>ONGFlow</h3>
@@ -351,8 +348,7 @@ Authorization: Bearer &lt;token&gt;
             <a href="https://github.com/RomuuloGoncalves/calculadora_compiladores" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span><span class="sr-only"> do mini interpretador (abre em nova aba)</span></a>
           </li>
           <li class="reveal-on-scroll">
-            <!-- TROCAR POR PRINT REAL -->
-            <span class="others__thumb others__thumb--empty" aria-hidden="true">Three.js</span>
+            <img class="others__thumb" src="../screenshots/lauressucrier/desktop-hero.png" alt="" width="1440" height="900" loading="lazy">
             <div>
               <p class="others__name">lauressucrier</p>
               <p class="others__desc">Landing page 3D feita como freela, com Three.js, GSAP e testes em Vitest.</p>
@@ -422,19 +418,18 @@ Authorization: Bearer &lt;token&gt;
           <li class="reveal-on-scroll"><span class="certs__name">MongoDB Node.js Developer Path</span><span class="certs__by">MongoDB, <time datetime="2026-05">mai/2026</time></span><code>MDBz8yqgb1ahv</code></li>
           <li class="reveal-on-scroll"><span class="certs__name">MongoDB Data Modeling Path</span><span class="certs__by">MongoDB, <time datetime="2026-04">abr/2026</time></span><code>MDBjqyw6ftv4n</code></li>
           <li class="reveal-on-scroll"><span class="certs__name">Introduction to MongoDB</span><span class="certs__by">MongoDB, <time datetime="2026-04">abr/2026</time></span><code>MDBst43cbdxts</code></li>
-          <li class="reveal-on-scroll"><span class="certs__name">Curso de Docker</span><span class="certs__by">Udemy, <time datetime="2026-02">fev/2026</time></span><code></code></li>
-          <li class="reveal-on-scroll"><span class="certs__name">Aluno Top da Uniso, 5 vezes</span><span class="certs__by">Universidade de Sorocaba</span><code></code></li>
+          <li class="reveal-on-scroll"><span class="certs__name">Curso de Docker</span><span class="certs__by">Udemy, <time datetime="2026-02">fev/2026</time></span></li>
+          <li class="reveal-on-scroll"><span class="certs__name">Aluno Top da Uniso, 5 vezes</span><span class="certs__by">Universidade de Sorocaba</span></li>
         </ul>
       </div>
     </section>
 
     <!-- CONTATO -->
-    <section class="section" id="contato" data-route="/contato" aria-labelledby="cont-t">
+    <section class="section section--tight" id="contato" data-route="/contato" aria-labelledby="cont-t">
       <span class="section-watermark" aria-hidden="true">06_CONTATO</span>
       <div class="container">
-        <h2 id="cont-t" class="section__title">Vamos conversar</h2>
-        <!-- [CONFIRMAR] "vaga" só vale se estiver aberto a propostas -->
-        <p class="section__sub">Se você tem uma vaga, um projeto ou quer trocar uma ideia sobre back-end, me escreve.</p>
+        <h2 id="cont-t" class="section__title">Contato</h2>
+        <!-- subtítulo de vaga só com D-12 aprovado -->
         <div class="contact__mail">
           <a href="mailto:romulogoncalves13@gmail.com">romulogoncalves13<wbr>@gmail.com</a>
           <button class="btn btn--ghost btn--sm copy" type="button" data-copy="romulogoncalves13@gmail.com">Copiar</button>
