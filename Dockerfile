@@ -14,11 +14,11 @@ RUN npm run build
 # Production Stage
 FROM nginx:alpine
 
-# Copy built assets to Nginx (nested under /portifolio/ to match vite base config)
-COPY --from=build /app/dist /usr/share/nginx/html/portifolio
+# Copy built assets to Nginx (nested under /portfolio/ to match vite base config)
+COPY --from=build /app/dist /usr/share/nginx/html/portfolio
 
-# Add a simple index.html at root to redirect to /portifolio/
-RUN echo '<meta http-equiv="refresh" content="0; url=/portifolio/" />' > /usr/share/nginx/html/index.html
+# Add a simple index.html at root to redirect to /portfolio/
+RUN echo '<meta http-equiv="refresh" content="0; url=/portfolio/" />' > /usr/share/nginx/html/index.html
 
 EXPOSE 80
 
