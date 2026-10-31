@@ -190,7 +190,7 @@ Checklist anti-vazamento (cada print, registrado em `screenshots.md`):
 - [ ] Teste: todo projeto tem os campos de DADOS-03 e descrição ≤ 220 caracteres
 - [ ] Teste: cargo de `portfolio.ts` aparece em `index.html` e "Full Stack" não aparece
 - [ ] Teste: `index.html` não contém `user-scalable=no`
-- [ ] Build sem `VITE_BASE` gera `/portifolio/`; com `VITE_BASE=/` gera `/`
+- [ ] Build sem `VITE_BASE` gera `/portfolio/`; com `VITE_BASE=/` gera `/`
 - [ ] Gate passa
 
 **Tests**: unit

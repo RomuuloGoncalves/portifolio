@@ -95,7 +95,7 @@ Cada stub já renderiza a seção com id, `data-route`, marca d'água e título 
 ```
 npm install                 # ok (avisos de npm audit herdados)
 npm run build               # vue-tsc && vite build → ✓ built in 3.6s
-                            # sem VITE_BASE: /portifolio/assets/...; com VITE_BASE=/: /assets/... (DEPLOY-03)
+                            # sem VITE_BASE: /portfolio/assets/...; com VITE_BASE=/: /assets/... (DEPLOY-03)
 npx vitest run              # Test Files 2 passed (2) · Tests 51 passed (51)
 npx vue-tsc --noEmit        # sem erros
 ```

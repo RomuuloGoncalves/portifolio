@@ -150,7 +150,7 @@ O portfólio em `src/views/HomePage.vue` (1.743 linhas, dados e estilo no mesmo 
 
 1. **DEPLOY-01** O site novo SHALL ser construído só na branch `v3` (criada de `master`, já com o commit `base` via `VITE_BASE` + `vercel.json`); `master` SHALL NOT receber commits desta feature até a troca (D-15); `v2` SHALL ser o backup do site antigo. <!-- ubiquitous -->
 2. **DEPLOY-02** WHEN houver push na branch `homologacao` THEN a Vercel (integração Git do projeto `portifolio`) SHALL gerar o deploy e o link da branch (`portifolio-git-homologacao-romuulogoncalves-projects.vercel.app`) SHALL passar a mostrar esse deploy, sem alias manual apontando para um deploy fixo. <!-- event-driven -->
-3. **DEPLOY-03** A build sem `VITE_BASE` SHALL continuar gerando `base: '/portifolio/'` (GitHub Pages do `master` intacto), e a Vercel SHALL definir `VITE_BASE=/` pelo `vercel.json`. <!-- ubiquitous -->
+3. **DEPLOY-03** A build sem `VITE_BASE` SHALL continuar gerando `base: '/portfolio/'` (GitHub Pages do `master` intacto), e a Vercel SHALL definir `VITE_BASE=/` pelo `vercel.json`. <!-- ubiquitous -->
 4. **DEPLOY-04** WHEN o usuário pedir a troca (D-15) THEN `v3` SHALL entrar na `master` e a produção da Vercel (branch de produção `master`) SHALL atualizar a cada push, sem alias manual. <!-- event-driven -->
 
 ### P2: Protótipo guia (entregável da Fase 0)

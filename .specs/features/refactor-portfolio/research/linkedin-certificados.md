@@ -27,7 +27,7 @@ Observações:
 
 - Título: Desenvolvedor Back-end @ AGX Software | Eng. da Computação | Node.js • TypeScript • MongoDB
 - Local: Sorocaba, SP. Mais de 500 conexões e 1.734 seguidores.
-- Destaques: link do portfólio (https://romuulogoncalves.github.io/portifolio/) e GitHub.
+- Destaques: link do portfólio (https://romuulogoncalves.github.io/portfolio/) e GitHub.
 - Sobre: estudante de Eng. da Computação (UNISO) e dev back-end na AGX (Node.js, TypeScript, MongoDB). Antes, estágio e depois Full Stack em sistema de gestão escolar (PHP, Laravel, MySQL; matrículas e financeiro, tickets, bugs, otimização de APIs). Projetos em equipe: **SoloTrack** (sensores IoT, API Laravel, agente de IA via MCP, front React) e **ONGFlow** (ONGs x voluntários, Laravel + React).
 
 ### Experiência

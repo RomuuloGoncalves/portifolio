@@ -84,7 +84,7 @@ export const perfil = {
   email: 'romulogoncalves13@gmail.com',
   github: 'https://github.com/RomuuloGoncalves',
   linkedin: 'https://www.linkedin.com/in/romuulogoncalves/',
-  codigoSite: 'https://github.com/RomuuloGoncalves/portifolio',
+  codigoSite: 'https://github.com/RomuuloGoncalves/portfolio',
 }
 
 export const secoes: Secao[] = [

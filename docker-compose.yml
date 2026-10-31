@@ -1,11 +1,11 @@
 version: '3.8'
 
 services:
-  portifolio-app:
+  portfolio-app:
     build:
       context: .
       dockerfile: Dockerfile.dev
-    container_name: portifolio-app
+    container_name: portfolio-app
     ports:
       - "8080:5173"
     volumes:
