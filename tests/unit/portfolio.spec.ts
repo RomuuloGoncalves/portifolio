@@ -72,9 +72,8 @@ describe('texto (COPY-02..05)', () => {
     expect(perfil.hero.length).toBeLessThanOrEqual(2)
     expect(perfil.hero.join(' ').match(/[.?]\s|[.?]$/g)!.length).toBeLessThanOrEqual(2)
   })
-  test('histórico: no máximo 3 itens por entrada; entrada atual sem tags', () => {
+  test('histórico: no máximo 3 itens por entrada', () => {
     for (const h of historico) expect(h.itens.length, h.titulo).toBeLessThanOrEqual(3)
-    expect(historico.filter((h) => h.selo === 'Atual').every((h) => h.tags.length === 0)).toBe(true)
   })
   test('títulos de seção de content.md rev. 2', () => {
     const titulo = (id: string) => secoes.find((s) => s.id === id)?.titulo

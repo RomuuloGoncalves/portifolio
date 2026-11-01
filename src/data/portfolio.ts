@@ -65,7 +65,7 @@ export const perfil = {
   sigla: 'RG',
   cargo: 'Desenvolvedor back-end',
   hero: [
-    'Desenvolvo APIs em Node.js, TypeScript e MongoDB na AGX Software.',
+    'Desenvolvo APIs REST e automações em Node.js, TypeScript e MongoDB na AGX Software.',
     'Antes, PHP e Laravel no ERP escolar da Education1.',
   ],
   // [CONFIRMAR] URL pública do PDF (D-16); o arquivo está em public/curriculo.pdf
@@ -91,7 +91,8 @@ export const secoes: Secao[] = [
   { id: 'topo', rota: '/' },
   { id: 'sobre', rota: '/sobre', marca: '01_SOBRE', titulo: 'Sobre' },
   { id: 'historico', rota: '/historico', marca: '02_HISTORICO', titulo: 'Histórico', sub: 'Trabalho e graduação acontecendo ao mesmo tempo.' },
-  { id: 'arquitetura', rota: '/arquitetura', marca: '03_PIPELINE', titulo: 'Anatomia de uma requisição', sub: 'Escolha um projeto e toque em cada etapa para ver o que acontece nela.' },
+  // título anterior: 'Anatomia de uma requisição'
+  { id: 'arquitetura', rota: '/arquitetura', marca: '03_PIPELINE', titulo: 'Por dentro de uma requisição', sub: 'Escolha um projeto e toque em cada etapa para ver o que acontece nela.' },
   { id: 'projetos', rota: '/projetos', marca: '04_PROJETOS', titulo: 'Projetos em destaque', sub: 'Cinco projetos com API, banco e testes; links para o código.' },
   { id: 'stack', rota: '/stack', marca: '05_STACK', titulo: 'Stack', sub: 'Do núcleo back-end à interface.' },
   { id: 'contato', rota: '/contato', marca: '06_CONTATO', titulo: 'Contato' },
@@ -104,7 +105,7 @@ export const linksHeader = [
 ]
 
 export const sobre = {
-  lead: 'Sou desenvolvedor back-end. Comecei no técnico da Etec Sales Gomes, em Tatuí, entrei como estagiário na Education1 em 2024 e hoje escrevo APIs na AGX Software.',
+  lead: 'Sou desenvolvedor back-end. Comecei no técnico da Etec Sales Gomes, em Tatuí, entrei como estagiário na Education1 em 2024 e hoje escrevo APIs e automações na AGX Software.',
   paragrafos: [
     'Na Education1 passei um ano e meio entre estágio e full stack: recebia os tickets do suporte, achava a causa e corrigia no ERP de gestão escolar, nos módulos de matrícula e financeiro.',
     'Faço Engenharia da Computação na Uniso, onde fui reconhecido 5 vezes como Aluno Top. Fora do trabalho, mantenho projetos próprios em Node.js, TypeScript e MongoDB.',
@@ -120,20 +121,26 @@ export const historico: ItemHistorico[] = [
   {
     periodo: '04/2026 a hoje', inicio: '2026-04', selo: 'Atual', tipo: 'trabalho',
     titulo: 'Desenvolvedor back-end', local: 'AGX Software, Sorocaba/SP, presencial',
-    // [CONFIRMAR] desenha as APIs do zero?
-    itens: ['Desenvolvo e mantenho serviços back-end. Analiso e corrijo tickets, crio funcionalidades novas e projeto APIs REST em Node.js e TypeScript, com MongoDB.'],
-    tags: [], // COPY-04: a entrada atual não repete em tags o que o texto já diz
+    itens: [
+      'Desenvolvo APIs REST em Node.js, TypeScript e Express, com MongoDB (Mongoose). Automatizo processos em portais bancários que não têm API, com web scraping em Puppeteer.',
+      'Otimizei o sistema de filas, criei aggregation pipelines no MongoDB, rotinas agendadas com cron e uma funcionalidade de otimização de arquivos.',
+      'Participo de integrações com serviços externos, como reconhecimento facial e prova de vida.',
+    ],
+    tags: ['Node.js', 'TypeScript', 'Express', 'MongoDB', 'Puppeteer'],
   },
   {
     periodo: '11/2025 a 04/2026', inicio: '2025-11', tipo: 'trabalho',
     titulo: 'Desenvolvedor full stack', local: 'Education1, remoto',
-    itens: ['Recebia os tickets do suporte, achava a causa e corrigia no ERP de gestão escolar, nos módulos de matrícula e financeiro. Criei telas, escrevi queries SQL e trabalhei na performance de APIs.'],
+    itens: [
+      'Implementei funcionalidades em módulos críticos do ERP de gestão escolar, da matrícula à gestão financeira, e corrigi bugs complexos e otimizei APIs REST em PHP e Laravel.',
+      'Refatorei a página de boletim da turma, reestruturando o cálculo e o código em PHP: a renderização caiu cerca de 87% (de 5 min para 40 s no caso testado).',
+    ],
     tags: ['PHP', 'Laravel', 'JavaScript', 'jQuery', 'MySQL'],
   },
   {
     periodo: '10/2024 a 11/2025', inicio: '2024-10', tipo: 'trabalho',
     titulo: 'Estagiário em Desenvolvimento de Sistemas', local: 'Education1, Sorocaba/SP',
-    itens: ['Analisava tickets, corrigia bugs e implantava melhorias no mesmo ERP.'],
+    itens: ['Desenvolvi funcionalidades full stack nos módulos de matrícula e controle financeiro do mesmo ERP. Diagnostiquei erros a partir de tickets, corrigi bugs críticos e customizei o software conforme requisitos de clientes.'],
     tags: [],
   },
   {
@@ -240,9 +247,9 @@ export const marquee: Tecnologia[] = [
 ]
 
 export const matrizStack = [
-  { grupo: 'Back-end', itens: ['Node.js', 'TypeScript', 'Express', 'Deno', 'PHP', 'Laravel', 'Lumen', 'API REST'] },
+  { grupo: 'Back-end', itens: ['Node.js', 'TypeScript', 'Express', 'Deno', 'PHP', 'Laravel', 'API REST', 'Web Scraping', 'Puppeteer'] },
   { grupo: 'Persistência', itens: ['MongoDB', 'Mongoose', 'Aggregation Framework', 'índices', 'modelagem NoSQL', 'MySQL', 'SQL'] },
-  { grupo: 'Infra e qualidade', itens: ['Docker', 'Linux', 'Git', 'GitHub', 'Vitest', 'Supertest', 'OpenAPI/Swagger', 'Scrum', 'Kanban'] },
+  { grupo: 'Infra e qualidade', itens: ['Docker', 'Linux', 'Git', 'GitHub', 'Vitest', 'Supertest', 'OpenAPI/Swagger', 'Testes unitários', 'Cron e filas', 'Scrum', 'Kanban'] },
   { grupo: 'Interface', itens: ['React', 'Next.js', 'Vue.js', 'Angular', 'Ionic', 'JavaScript', 'HTML/CSS'] },
 ]
 
